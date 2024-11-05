@@ -1,0 +1,37 @@
+{
+  "name": "Half Price Packaging",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "build": "nuxt build",
+    "dev": "nuxt dev",
+    "generate": "nuxt generate",
+    "preview": "nuxt preview",
+    "postinstall": "nuxt prepare"
+  },
+  "dependencies": {
+    "@nuxt/content": "^2.13.2",
+    "@nuxt/image": "^1.7.0",
+    "@nuxt/ui": "^2.18.4",
+    "@nuxtjs/color-mode": "^3.5.1",
+    "@nuxtjs/device": "^3.2.4",
+    "@nuxtjs/google-fonts": "^3.2.0",
+    "@nuxtjs/sitemap": "^6.1.1",
+    "@pinia/nuxt": "^0.5.5",
+    "keen-slider": "^6.8.6",
+    "mmenu-js": "^9.3.0",
+    "nuxt": "^3.12.4",
+    "pinia": "^2.2.4",
+    "sass": "^1.77.8",
+    "swiper": "^11.1.12",
+    "vue": "latest",
+    "vue-dompurify-html": "^5.1.0"
+  },
+  "devDependencies": {
+    "@zadigetvoltaire/nuxt-gtm": "^0.0.13",
+    "autoprefixer": "^10.4.19",
+    "postcss": "^8.4.40",
+    "sharp": "^0.33.5",
+    "tailwindcss": "^3.4.7"
+  }
+}
