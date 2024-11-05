@@ -81,6 +81,9 @@ export default defineNuxtConfig({
 
   nitro: {
     preset: 'netlify',
+    future: {
+      nativeSWR: true
+    },
     prerender: {
       crawlLinks: false,
       routes: ['/', 'sitemap.xml'],
