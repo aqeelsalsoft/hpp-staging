@@ -4,7 +4,7 @@
 import { defineNuxtModule } from 'nuxt';
 import { resolve } from "path";
 export default defineNuxtConfig({
- 
+
   // App Default Config
   app: {
     head: {
@@ -80,6 +80,7 @@ export default defineNuxtConfig({
   },
 
   nitro: {
+    preset: 'netlify',
     prerender: {
       crawlLinks: false,
       routes: ['/', 'sitemap.xml'],
@@ -88,7 +89,7 @@ export default defineNuxtConfig({
 
   // Nuxt Image Module Config
   image: {
-    
+
     screens: {
       default: 320,
       xxs: 480,
@@ -153,8 +154,8 @@ export default defineNuxtConfig({
 
   // Swiper Js Config
   // swiper: {
-    // Global swiper options can be configured here
-    //modules: ['autoplay', 'effect-coverflow'],
+  // Global swiper options can be configured here
+  //modules: ['autoplay', 'effect-coverflow'],
   // },
 
   // Nuxt Color Mode
