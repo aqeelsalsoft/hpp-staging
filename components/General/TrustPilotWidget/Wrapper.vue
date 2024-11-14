@@ -1,14 +1,29 @@
-<script lang="ts" setup>
-import { onMounted } from 'vue'
+<script setup>
+// import { onMounted } from 'vue'
+
+// onMounted(() => {
+//     // Dynamically load the Trustpilot script when the component is mounted
+//     const script = document.createElement('script')
+//     script.type = 'text/javascript'
+//     script.src = 'https://widget.trustpilot.com/bootstrap/v5/tp.widget.bootstrap.min.js'
+//     script.async = true
+//     script.defer = true
+//     document.body.appendChild(script)
+// })
+import { onMounted } from 'vue';
 
 onMounted(() => {
-    // Dynamically load the Trustpilot script when the component is mounted
-    const script = document.createElement('script')
-    script.type = 'text/javascript'
-    script.src = 'https://widget.trustpilot.com/bootstrap/v5/tp.widget.bootstrap.min.js'
-    script.async = true
-    document.body.appendChild(script)
-})
+  // Defer the loading of the Trustpilot script until after the page has fully loaded
+  window.addEventListener('load', () => {
+    const script = document.createElement('script');
+    script.type = 'text/javascript';
+    script.src = 'https://widget.trustpilot.com/bootstrap/v5/tp.widget.bootstrap.min.js';
+    script.async = true;
+    script.defer = true;
+    document.body.appendChild(script);
+  });
+});
+
 </script>
 
 <template>
