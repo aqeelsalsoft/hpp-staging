@@ -3,10 +3,10 @@
 <template>
     <div class="flex items-center h-[100vw] md:h-screen bg-[#333333] relative overflow-hidden">
         <div
-            class="thumb__wrapper w-full h-full relative before:content-[''] before:absolute before:top-0 before:left-0 before:right-0 before:bottom-0 before:bg-[rgba(0,0,0,0.6)]">
-            <NuxtImg format="webp" src="/images/sustainability-grid/sustainability.jpg"
+            class="thumb__wrapper w-full h-full bg-[url('/images/sustainability-grid/sustainability.jpg')] bg-no-repeat bg-center bg-contain pt-[100%] relative before:content-[''] before:absolute before:top-0 before:left-0 before:right-0 before:bottom-0 before:bg-[rgba(0,0,0,0.6)]">
+            <!-- <NuxtImg format="webp" src="/images/sustainability-grid/sustainability.jpg"
                 alt="Sustainability Grid Thumbnail" loading="lazy" width="1000" height="1000"
-                class="w-full h-full object-cover" sizes="400px sm:600px md:850 lg:950px xl:1000px xxl:100wv" />
+                class="w-full h-full object-cover" sizes="400px sm:600px md:850 lg:950px xl:1000px xxl:100wv" /> -->
         </div>
         <div class="Inner absolute top-1/2 left-1/2 -translate-y-1/2 -translate-x-1/2 w-full">
             <div class="py-[50px] md:py-14 pl-[30px] md:pl-14 pr-[30px] md:pr-40">
