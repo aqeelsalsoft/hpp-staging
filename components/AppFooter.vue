@@ -1,37 +1,68 @@
 <script setup>
 const { $device } = useNuxtApp();
 
+import { onMounted } from 'vue';
+
+onMounted(() => {
+  // Defer the loading of the Zoho SalesIQ script until after the page has fully loaded
+  window.addEventListener('load', () => {
+    const script = document.createElement('script');
+    script.type = 'text/javascript';
+    script.id = 'zsiqchat';
+    script.async = true;
+    script.defer = true;
+    script.innerHTML = `
+      var $zoho = $zoho || {};
+      $zoho.salesiq = $zoho.salesiq || {
+        widgetcode: "siq7554f5a6de5947a3bbb48ecbd8b715e435bf2a636fa2e2571eb445ab76f10a55",
+        values: {},
+        ready: function() {}
+      };
+      var d = document;
+      var s = d.createElement("script");
+      s.type = "text/javascript";
+      s.id = "zsiqscript";
+      s.defer = true;
+      s.src = "https://salesiq.zohopublic.com/widget";
+      var t = d.getElementsByTagName("script")[0];
+      t.parentNode.insertBefore(s, t);
+    `;
+    document.body.appendChild(script);
+  });
+});
+
+
 // Add the Zoho SalesIQ script to the head
-useHead({
-    script: [
-        {
-            type: 'text/javascript',
-            id: 'zsiqchat',
-            async: true,
-            defer: true,
-            innerHTML: `
-        var $zoho=$zoho || {};
-        $zoho.salesiq = $zoho.salesiq || {
-          widgetcode: "siq7554f5a6de5947a3bbb48ecbd8b715e435bf2a636fa2e2571eb445ab76f10a55",
-          values:{},
-          ready:function(){}
-        };
-        var d=document;
-        var s=d.createElement("script");
-        s.type="text/javascript";
-        s.id="zsiqscript";
-        s.defer=true;
-        s.src="https://salesiq.zohopublic.com/widget";
-        var t=d.getElementsByTagName("script")[0];
-        t.parentNode.insertBefore(s,t);
-      `
-        }
-    ],
-    // This is necessary to ensure that the inline script is correctly executed
-    __dangerouslyDisableSanitizersByTagID: {
-        'zsiqchat': ['innerHTML']
-    }
-})
+// useHead({
+//     script: [
+//         {
+//             type: 'text/javascript',
+//             id: 'zsiqchat',
+//             async: true,
+//             defer: true,
+//             innerHTML: `
+//         var $zoho=$zoho || {};
+//         $zoho.salesiq = $zoho.salesiq || {
+//           widgetcode: "siq7554f5a6de5947a3bbb48ecbd8b715e435bf2a636fa2e2571eb445ab76f10a55",
+//           values:{},
+//           ready:function(){}
+//         };
+//         var d=document;
+//         var s=d.createElement("script");
+//         s.type="text/javascript";
+//         s.id="zsiqscript";
+//         s.defer=true;
+//         s.src="https://salesiq.zohopublic.com/widget";
+//         var t=d.getElementsByTagName("script")[0];
+//         t.parentNode.insertBefore(s,t);
+//       `
+//         }
+//     ],
+//     // This is necessary to ensure that the inline script is correctly executed
+//     __dangerouslyDisableSanitizersByTagID: {
+//         'zsiqchat': ['innerHTML']
+//     }
+// })
 
 // useHead({
 //     script: [
