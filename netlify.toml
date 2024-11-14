@@ -1,2 +1,30 @@
 [build.environment]
   NODE_OPTIONS = "--max_old_space_size=4096"
+
+[images]
+  remote_images = ["https://www.halfpricepackaging\\.com/.*"]
+
+[[headers]]
+  # Match all files in /_nuxt/ (Nuxt assets like JavaScript and CSS files)
+  for = "/_nuxt/*"
+  [headers.values]
+    Cache-Control = "public, max-age=31536000, immutable"
+
+[[headers]]
+  # Match all files in /public/ directory (other static assets like images, fonts, etc.)
+  for = "/images/*"
+  [headers.values]
+    Cache-Control = "public, max-age=31536000, immutable"
+
+[[headers]]
+  # Cache policy for favicon and other specific assets that rarely change
+  for = "/favicon.ico"
+  [headers.values]
+    Cache-Control = "public, max-age=86400" # Cache for one day
+
+[[headers]]
+  # Cache policy for all other static files in /public
+  for = "/public/*"
+  [headers.values]
+    Cache-Control = "public, max-age=31536000, immutable"
+

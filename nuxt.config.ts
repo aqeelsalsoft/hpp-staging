@@ -163,13 +163,13 @@ export default defineNuxtConfig({
   //   enabled: true,
   // },
 
-  // scripts: { 
-  //   registry: {
-  //     googleTagManager: {
-  //       id: 'GTM-WDX5T2S'
-  //     },
-  //   }
-  // },
+  scripts: { 
+    registry: {
+      googleTagManager: {
+        id: 'GTM-WDX5T2S'
+      },
+    }
+  },
 
   // imports: { dirs: ["stores"] },
 
