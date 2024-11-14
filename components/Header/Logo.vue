@@ -102,6 +102,7 @@
             </svg>
         </NuxtLink>
     </div>
+    <HeaderMobileNavigation class="block md:hidden" />
 </template>
 
 <style lang="scss" scoped></style>

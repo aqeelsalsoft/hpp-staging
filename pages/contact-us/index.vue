@@ -4,6 +4,30 @@ import { useRoute } from 'vue-router';
 
 const route = useRoute();
 
+const generingFaqs = [
+  {
+    defaultOpen: true,
+    question: "What are your minimum order quantities (MOQ)?",
+    answer: "Our minimum order quantity (MOQ) changes based on the distinct product line and customization needs. For more information about the MOQ for the product you're inquisitive about, please reach out to our specialists. We seek to accommodate orders of all measures to meet our customers' various needs, so don't hesitate."
+  },
+  {
+    question: "Do you offer design assistance?",
+    answer: "Yes, our professional designers can assist you in creating the ideal design for your custom packaging. We function closely with our clients to guarantee your packaging aligns with your brand values and product needs. Also, it is free of cost."
+  },
+  {
+    question: "Can I try out samples before purchasing?",
+    answer: "Absolutely! Our sample kit is curated to showcase our top-selling products, allowing you to experience their exceptional quality firsthand. You'll get the chance to see and feel the materials up close. Additionally, we offer a convenient swatch book for your reference."
+  },
+  {
+    question: "What types of packaging materials are available for custom boxes?",
+    answer: "We bring an extensive collection of materials in various thicknesses, including but not limited to eco-friendly Kraft, heavy-duty corrugated, lightweight paperboard and cardboard, bux board, and rigid stock. To keep the uniqueness alive, we also offer metallic stock. For more information, contact our material experts."
+  },
+  {
+    question: "What is the duration of your production time?",
+    answer: `The production timeline varies from 8-10 business days, depending on the order quantity. After checkout, you will receive an estimated "in hands" date for the boxes shopping cart.`
+  },
+]
+
 useSeoMeta({
     title: "Contact Us | Half Price Packaging",
     meta: [
@@ -67,7 +91,7 @@ useHead({
 
         <LazyContactMapWrapper />
         <LazyContactCompanyDetailWrapper />
-        <LazyGeneralFaqWrapper />
+        <LazyGeneralFaqWrapper :faqs="generingFaqs" />
         <LazyGeneralSampleKitWrapper />
     </div>
 </template>

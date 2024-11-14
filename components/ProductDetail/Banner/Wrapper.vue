@@ -25,42 +25,42 @@ defineProps({
         <div class="md:container md:mx-auto px-[20px] md:px-[15px]">
             <div class="flex flex-wrap">
                 <div class="breadcrumbs__wrap w-full mb-[20px] order-1">
-                    <ul class="flex items-center gap-[10px]">
+                    <ul class="flex flex-wrap items-center gap-[5px] md:gap-[10px]">
                         <li>
                             <NuxtLink to="/" aria-label="Home Page Link"><svg xmlns="http://www.w3.org/2000/svg"
                                     fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"
-                                    class="size-5">
+                                    class="size-4 md:size-5">
                                     <path stroke-linecap="round" stroke-linejoin="round"
                                         d="m2.25 12 8.954-8.955c.44-.439 1.152-.439 1.591 0L21.75 12M4.5 9.75v10.125c0 .621.504 1.125 1.125 1.125H9.75v-4.875c0-.621.504-1.125 1.125-1.125h2.25c.621 0 1.125.504 1.125 1.125V21h4.125c.621 0 1.125-.504 1.125-1.125V9.75M8.25 21h8.25" />
                                 </svg></NuxtLink>
                         </li>
                         <li><span class="divider"><svg xmlns="http://www.w3.org/2000/svg" fill="none"
-                                    viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-4">
+                                    viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-3 md:size-4">
                                     <path stroke-linecap="round" stroke-linejoin="round"
                                         d="m8.25 4.5 7.5 7.5-7.5 7.5" />
                                 </svg></span></li>
                         <li>
-                            <NuxtLink to="/industries">Industry</NuxtLink>
+                            <NuxtLink to="/industries" class="font-description text-sm md:text-base">Industry</NuxtLink>
                         </li>
                         <li><span class="divider"><svg xmlns="http://www.w3.org/2000/svg" fill="none"
-                                    viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-4">
+                                    viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-3 md:size-4">
                                     <path stroke-linecap="round" stroke-linejoin="round"
                                         d="m8.25 4.5 7.5 7.5-7.5 7.5" />
                                 </svg></span></li>
                         <li>
                             <NuxtLink v-for="item in industry"
-                                :to="`${item?.type == 1 ? '/' : '/industry/'}${item?.slug}`">{{ item?.title }}</NuxtLink>
+                                :to="`${item?.type == 1 ? '/' : '/industry/'}${item?.slug}`" class="font-description text-sm md:text-base">{{ item?.title }}</NuxtLink>
                         </li>
                         <li><span class="divider"><svg xmlns="http://www.w3.org/2000/svg" fill="none"
-                                    viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-4">
+                                    viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-3 md:size-4">
                                     <path stroke-linecap="round" stroke-linejoin="round"
                                         d="m8.25 4.5 7.5 7.5-7.5 7.5" />
                                 </svg></span></li>
-                        <li><span>{{ title }}</span></li>
+                        <li><span class="font-description text-sm md:text-base">{{ title }}</span></li>
                     </ul>
                 </div>
                 <div class="thumb__wrapper w-full md:w-[55%] order-3 md:order-2">
-                    <ClientOnly fallbackTag="span">
+                    <ClientOnly>
                         <ProductDetailBannerGalleryCarousel :galleryImages="galleryImages" />
                     </ClientOnly>
                 </div>
@@ -72,7 +72,7 @@ defineProps({
                             <p class="font-description mt-6 text-[16px] leading-[24px] text-gray-600 mb-[30px]">
                                 {{ description }}</p>
                             <ProductDetailBannerForm />
-                            <div class="logos__wrapper">
+                            <!-- <div class="logos__wrapper">
                                 <div class="flex items-center -mx-[15px]">
                                     <div class="icon__wrap px-[15px]">
                                         <svg class="w-[140px]" xmlns="http://www.w3.org/2000/svg"
@@ -134,7 +134,7 @@ defineProps({
                                         </svg>
                                     </div>
                                 </div>
-                            </div>
+                            </div> -->
                         </div>
                     </div>
                 </div>

@@ -178,7 +178,7 @@ const items = [{
     <HomeFeaturedIndustriesWrapper />
     <LazyGeneralSaveBulkOrderCTAWrapper />
     <LazyHomeFeaturedProductsWrapper />
-    <LazyGeneralSaveBulkOrderCTAWrapper />
+    <LazyGeneralSaveBulkOrderCTAWrapper subtitle='Need more this year?' title='Get The Most <span class="text-[#ef4b5f]">Accurate Quotation</span>' />
     <LazyGeneralGoogleReviewsWrapper />
     <!-- <LazyGeneralInstantPricesWrapper /> -->
     <!-- <LazyGeneralPackagingProcessStepsWrapper /> -->

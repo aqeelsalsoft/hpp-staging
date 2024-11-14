@@ -12,6 +12,7 @@ const form = reactive({
   email: '',
   phone: '',
   box_type: '',
+  extra_field: '',
   quantity: '',
   address:"",
   website:"",
@@ -24,6 +25,10 @@ const quantityError = ref('');
 const isProcessing = ref(false);
 
 const onSubmit = async () => {
+  if (form.extra_field) {
+    console.log("Bot detected: honeypot field is filled.");
+    return false;
+  }
   if(!phoneError.value && !emailError.value && !quantityError.value){
     try {
     isProcessing.value = true
@@ -74,7 +79,12 @@ const rules = {
   isNumeric: (value) => /^[+\d\s()-]+$/.test(value) || 'Phone number is not valid',
   minLength: (value, length = 6) => value.length >= length || `Phone number must be at least ${length} digits long`,
   isEmail: (value) => /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(value) || 'Email must be valid',
-  isQuantity: (value) => value >= 200 || 'Min 200 | Great Savings on Larger QTY', 
+  isQuantity: (value) => {
+  if (!/^\d+$/.test(value)) {
+    return 'Please enter a valid QTY';
+  }
+  return value >= 200 || 'Min 200 | Great Savings on Larger QTY';
+}
 };
 
 
@@ -131,10 +141,17 @@ const validateQuantity = () => {
             <div class="w-full flex flex-wrap md:flex-nowrap items-center">
                 <div class="form__wrap relative w-full md:w-[60%] md:px-[30px] order-2 md:order-1">
                     <div class="header__wrap mb-[30px]">
-                        <h2 class="font-headings text-[36px] leading-[40px] font-bold tracking-tight text-[#242424] sm:text-4xl mb-4">Order a Sample Kit</h2>
-                        <p class="font-description text-[#212529] text-[16px] md:text-[14px] leading-[24px] md:leading-[22px]">Get Free Consultation and Order Your Sample Kit to feel More Confident for Choosing Half Price Packaging as your product packaging partner.</p>
+                        <h2 class="font-headings text-[30px] md:text-[36px] leading-[34px] md:leading-[40px] font-bold tracking-tight text-[#242424] sm:text-4xl mb-4">Order a Sample Kit</h2>
+                        <p class="font-description text-[#212529] text-[14px] md:text-[16px] leading-[20px] md:leading-[24px]">Get Free Consultation and Order Your Sample Kit to feel More Confident for Choosing Half Price Packaging as your product packaging partner.</p>
                     </div>
                     <form @submit.prevent="onSubmit" id="hpp__instantPricesForm" class="mb-0">
+                        <input
+                          type="text"
+                          name="extra_field"
+                          v-model="form.extra_field"
+                          class="hidden"
+                          autocomplete="off"
+                        />
                         <div class="flex flex-wrap ml-[-5px] mr-[-5px]">
                             <div class="relative basis-[50%] px-[5px] mb-[10px]">
                                 <label for="ipf-full-name" class="sr-only">Full Name</label>
@@ -220,7 +237,7 @@ const validateQuantity = () => {
                         </div>
                     </form>
                 </div>
-                <div class="w-full md:w-[40%] text-center order-1 md:order-2 mb-[40px] md:mb-0">
+                <div class="hidden md:block w-full md:w-[40%] text-center order-1 md:order-2 mb-[40px] md:mb-0">
                     <NuxtImg format="webp" src="/images/box-sample-kit.png" width="400" height="483" alt="Sample Kit Thumbnail" loading="lazy"
                 class="inline-block w-[400px] h-auto object-contain" />
                 </div>

@@ -294,7 +294,7 @@
         <NuxtLink to="/catalogue"
             class="inline-block font-headings font-bold inline-block ease-in-out duration-[0.3s] text-[#ffffff] text-[12px] md:text-[14px] bg-[#ef4b5f] rounded-[6px] py-[5px] px-[12px] border border-[#ef4b5f] border-solid hover:bg-[#ef4b5f] hover:border-[#ef4b5f] mr-[15px]">
             Browse Our Catalogue</NuxtLink>
-        <a href="/HALFPRICEPACKAGING-COMPANY-PROFILE.pdf" target="_blank" rel="nofollow"
+        <a href="/HALFPRICEPACKAGING-COMPANY-PROFILE.pdf" target="_blank"
             class="inline-block font-headings font-bold inline-block ease-in-out duration-[0.3s] text-[#ffffff] text-[12px] md:text-[14px] bg-[#ef4b5f] rounded-[6px] py-[5px] px-[12px] border border-[#ef4b5f] border-solid hover:bg-[#ef4b5f] hover:border-[#ef4b5f]">
             View Company Profile</a>
     </div>

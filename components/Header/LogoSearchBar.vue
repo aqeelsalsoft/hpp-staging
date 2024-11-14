@@ -3,10 +3,10 @@
 <template>
     <div class="hpp__logoSearchBarWrap pt-3 pb-3">
         <div class="container mx-auto px-[15px]">
-            <div class="flex items-center">
+            <div class="flex flex-wrap items-center">
                 <HeaderLogo />
                 <HeaderSearchBar />
-                <HeaderContactDetails />
+                <HeaderContactDetails class="hidden md:block" />
             </div>
         </div>
     </div>

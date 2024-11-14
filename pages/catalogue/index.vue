@@ -1,6 +1,7 @@
 <script setup>
 import { ref, watch } from 'vue';
 import { useRoute } from 'vue-router';
+const { IsSelectedIndustry } = storeToRefs(useGlobalStore());
 
 const route = useRoute();
 const img = useImage()
@@ -14,6 +15,7 @@ const perPage = ref(10);
 const totalPages = ref(1);
 const isProcessing = ref(false);
 const selected = ref(false);
+const selectedChecked = ref(true);
 const industries = ref([]);
 const shapes = ref([]);
 const tags = ref(null);
@@ -34,6 +36,7 @@ const { data, status, error, refresh, clear } = await useAsyncData(
   { initialCache: false }
 );
 allProducts.value = data?.value;
+selected.value = IsSelectedIndustry.value;
 isProcessing.value = false;
 
 if (true) {
@@ -54,7 +57,6 @@ if (true) {
 
 const updateSelection = (id) => {
   selected.value = id;
-  console.log("here", selected.value);
   ProductFilter();
 };
 
@@ -99,6 +101,11 @@ const goToPage = async (url) => {
     });
   }
 };
+
+console.log("selected.value::", selected.value, IsSelectedIndustry.value);
+if(selected.value){
+  ProductFilter();
+}
 
 useHead({
   link: [
@@ -181,7 +188,9 @@ useSeoMeta({
             <ul class="font-description font-medium text-gray-500 text-[14px]">
 
               <li class="mb-[10px]" v-for="item in industries" :key="item.id">
-                <UCheckbox :name="item.title" :value="item.id" color="primary" :checked="item.id == selected"
+                <UCheckbox v-model="selectedChecked" v-if="IsSelectedIndustry && (item.id === selected)" :name="item.title" :value="item.id" color="primary"
+                :label="item.title" :ui="{ label: 'text-[#242424]' }" @change="updateSelection(item.id)" />
+                <UCheckbox v-else :name="item.title" :value="item.id" color="primary" :checked="item.id == selected"
                   :label="item.title" :ui="{ label: 'text-[#242424]' }" @change="updateSelection(item.id)" />
               </li>
             </ul>
@@ -194,7 +203,9 @@ useSeoMeta({
             </h3>
             <ul class="font-description font-medium text-gray-500 text-[14px]">
               <li class="mb-[10px]" v-for="item in shapes" :key="item.id">
-                <UCheckbox :checked="item.id == selected" :name="item.title" :value="item.id" color="primary"
+                <UCheckbox v-model="selectedChecked" v-if="IsSelectedIndustry && (item.id === selected)" checked :name="item.title" :value="item.id" color="primary"
+                :label="item.title" :ui="{ label: 'text-[#242424]' }" @change="updateSelection(item.id)" />
+                <UCheckbox v-else :checked="item.id === selected" :name="item.title" :value="item.id" color="primary"
                   :label="item.title" :ui="{ label: 'text-[#242424]' }" @change="updateSelection(item.id)" />
               </li>
             </ul>

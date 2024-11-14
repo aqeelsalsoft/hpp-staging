@@ -25,6 +25,7 @@ const form = reactive({
     box_type: '',
     quantity: '',
     file: null,
+    extra_field: null,
     description: '',
 })
 
@@ -37,6 +38,10 @@ const isProcessing = ref(false);
 
 
 const onSubmit = async () => {
+  if (form.extra_field) {
+    console.log("Bot detected: honeypot field is filled.");
+    return false;
+  }
     if (!phoneError.value && !emailError.value && !quantityError.value) {
         try {
             isProcessing.value = true
@@ -84,7 +89,12 @@ const rules = {
     isNumeric: (value) => /^[+\d\s()-]+$/.test(value) || 'Phone number is not valid',
     minLength: (value, length = 6) => value.length >= length || `Phone number must be at least ${length} digits long`,
     isEmail: (value) => /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(value) || 'Email must be valid',
-    isQuantity: (value) => value >= 200 || 'Min 200 | Great Savings on Larger QTY',
+    isQuantity: (value) => {
+      if (!/^\d+$/.test(value)) {
+        return 'Please enter a valid number';
+      }
+      return value >= 200 || 'Min 200 | Great Savings on Larger QTY';
+    }
 };
 
 
@@ -136,6 +146,13 @@ const validateQuantity = () => {
 <template>
     <div class="product__form">
         <form id="hpp__getQuoteForm" class="mb-0" @submit.prevent="onSubmit">
+          <input
+            type="text"
+            name="extra_field"
+            v-model="form.extra_field"
+            class="hidden"
+            autocomplete="off"
+          />
             <div class="flex flex-wrap ml-[-5px] mr-[-5px]">
                 <div class="relative w-[50%] md:w-[50%] px-[5px] mb-[10px]">
                     <label for="ipf-full-name" class="sr-only">Full Name</label>

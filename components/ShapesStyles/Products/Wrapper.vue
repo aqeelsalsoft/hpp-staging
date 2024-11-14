@@ -349,7 +349,7 @@
                     </NuxtLink>
                 </div>
                 <div class="item__wrap">
-                    <NuxtLink to="/child-resistant"
+                    <NuxtLink to="/display-boxes"
                         class="group relative flex flex-wrap md:flex-nowrap items-center sm:block bg-white md:px-4 md:p-2 cursor-pointer font-mori group tracking-mori rounded-[20px] sm:rounded-b-[12px] sm:rounded-t-[36px] sm:hover:shadow-xl sm:border-[2px] sm:border-white sm:hover:border-[#fbfbfb] transition-all duration-300">
                         <div class="thumb__wrap relative w-[100%] bg-[#efefef] rounded-[32px] overflow-hidden">
                             <NuxtImg format="webp" src="/images/shapes-and-styles/display-boxes-thumbnail.jpg"

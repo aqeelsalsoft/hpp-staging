@@ -3,8 +3,8 @@
 <template>
     <div class="relative">
         <div class="hpp__mobileBannerImgWrap pt-[150px]">
-            <NuxtImg format="webp" src="/images/home-banner/banner-mobile.jpg" alt="HPP Home Mobile Banner" width="575"
-                height="863" class="w-full h-[500px] object-cover object-top" sizes="100vw default:320px xxs:412px xs:430px" />
+            <NuxtImg placeholder format="webp" src="/images/home-banner/banner-mobile.jpg" alt="HPP Home Mobile Banner" width="575"
+                height="863" class="w-full h-[500px] object-cover object-top" sizes="320px default:375px xxs:400px xs:430px sm:450px md:500px lg:500px" />
         </div>
         <div class="hpp__bannerContentWrapper absolute top-0 left-0 px-[20px] pt-[70px]">
             <h1 class="font-headings text-[40px] leading-[46px] text-white font-bold mb-6">

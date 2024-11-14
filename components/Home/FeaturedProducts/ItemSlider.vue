@@ -56,7 +56,7 @@ onBeforeUnmount(() => {
                         class="relative flex items-center sm:block bg-white px-4 sm:p-2 cursor-pointer font-mori group tracking-mori rounded-[20px] sm:rounded-b-[12px] sm:rounded-t-[36px] sm:hover:shadow-xl sm:border-[2px] sm:border-white sm:hover:border-[#fbfbfb] transition-all duration-300">
                         <div class="thumb__wrap w-[100%] bg-[#efefef] rounded-[32px] overflow-hidden">
                             <NuxtImg format="webp" src="/images/home-featured-products/auto-lock-boxes.jpg"
-                                alt="Auto Lock Boxes Thumbnail" loading="lazy" fit="cover" width="336" height="336"
+                                alt="Auto Lock Boxes Thumbnail" loading="lazy" fit="cover" width="390" height="390"
                                 class="w-full h-auto" />
                         </div>
                         <div class="desc__wrap py-[10px]">
@@ -77,7 +77,7 @@ onBeforeUnmount(() => {
                         class="relative flex items-center sm:block bg-white px-4 sm:p-2 cursor-pointer font-mori group tracking-mori rounded-[20px] sm:rounded-b-[12px] sm:rounded-t-[36px] sm:hover:shadow-xl sm:border-[2px] sm:border-white sm:hover:border-[#fbfbfb] transition-all duration-300">
                         <div class="thumb__wrap w-[100%] bg-[#efefef] rounded-[32px] overflow-hidden">
                             <NuxtImg format="webp" src="/images/home-featured-products/magnetic-closure-with-insert.jpg"
-                            alt="Magnetic Closure With Inserts Thumbnail" loading="lazy" fit="cover" width="336" height="336"
+                            alt="Magnetic Closure With Inserts Thumbnail" loading="lazy" fit="cover" width="390" height="390"
                                 class="w-full h-auto" />
                         </div>
                         <div class="desc__wrap py-[10px]">
@@ -98,7 +98,7 @@ onBeforeUnmount(() => {
                         class="relative flex items-center sm:block bg-white px-4 sm:p-2 cursor-pointer font-mori group tracking-mori rounded-[20px] sm:rounded-b-[12px] sm:rounded-t-[36px] sm:hover:shadow-xl sm:border-[2px] sm:border-white sm:hover:border-[#fbfbfb] transition-all duration-300">
                         <div class="thumb__wrap w-[100%] bg-[#efefef] rounded-[32px] overflow-hidden">
                             <NuxtImg format="webp" src="/images/home-featured-products/custom-boxes-with-inserts.jpg"
-                                alt="Custom Boxes With Inserts Thumbnail" loading="lazy" fit="cover" width="336" height="336"
+                                alt="Custom Boxes With Inserts Thumbnail" loading="lazy" fit="cover" width="390" height="390"
                                 class="w-full h-auto" />
                         </div>
                         <div class="desc__wrap py-[10px]">
@@ -119,7 +119,7 @@ onBeforeUnmount(() => {
                         class="relative flex items-center sm:block bg-white px-4 sm:p-2 cursor-pointer font-mori group tracking-mori rounded-[20px] sm:rounded-b-[12px] sm:rounded-t-[36px] sm:hover:shadow-xl sm:border-[2px] sm:border-white sm:hover:border-[#fbfbfb] transition-all duration-300">
                         <div class="thumb__wrap w-[100%] bg-[#efefef] rounded-[32px] overflow-hidden">
                             <NuxtImg format="webp" src="/images/home-featured-products/coffee-cups.jpg"
-                                alt="Coffee Cups Thumbnail" loading="lazy" fit="cover" width="336" height="336"
+                                alt="Coffee Cups Thumbnail" loading="lazy" fit="cover" width="390" height="390"
                                 class="w-full h-auto" />
                         </div>
                         <div class="desc__wrap py-[10px]">
@@ -140,7 +140,7 @@ onBeforeUnmount(() => {
                         class="relative flex items-center sm:block bg-white px-4 sm:p-2 cursor-pointer font-mori group tracking-mori rounded-[20px] sm:rounded-b-[12px] sm:rounded-t-[36px] sm:hover:shadow-xl sm:border-[2px] sm:border-white sm:hover:border-[#fbfbfb] transition-all duration-300">
                         <div class="thumb__wrap w-[100%] bg-[#efefef] rounded-[32px] overflow-hidden">
                             <NuxtImg format="webp" src="/images/home-featured-products/eco-friendly.jpg"
-                                alt="Eco-Friendly Boxes Thumbnail" loading="lazy" fit="cover" width="336" height="336"
+                                alt="Eco-Friendly Boxes Thumbnail" loading="lazy" fit="cover" width="390" height="390"
                                 class="w-full h-auto" />
                         </div>
                         <div class="desc__wrap py-[10px]">
@@ -161,7 +161,7 @@ onBeforeUnmount(() => {
                         class="relative flex items-center sm:block bg-white px-4 sm:p-2 cursor-pointer font-mori group tracking-mori rounded-[20px] sm:rounded-b-[12px] sm:rounded-t-[36px] sm:hover:shadow-xl sm:border-[2px] sm:border-white sm:hover:border-[#fbfbfb] transition-all duration-300">
                         <div class="thumb__wrap w-[100%] bg-[#efefef] rounded-[32px] overflow-hidden">
                             <NuxtImg format="webp" src="/images/home-featured-products/wine-boxes.jpg"
-                                alt="Wine Boxes Thumbnail" loading="lazy" fit="cover" width="336" height="336"
+                                alt="Wine Boxes Thumbnail" loading="lazy" fit="cover" width="390" height="390"
                                 class="w-full h-auto" />
                         </div>
                         <div class="desc__wrap py-[10px]">
@@ -182,7 +182,7 @@ onBeforeUnmount(() => {
                         class="relative flex items-center sm:block bg-white px-4 sm:p-2 cursor-pointer font-mori group tracking-mori rounded-[20px] sm:rounded-b-[12px] sm:rounded-t-[36px] sm:hover:shadow-xl sm:border-[2px] sm:border-white sm:hover:border-[#fbfbfb] transition-all duration-300">
                         <div class="thumb__wrap w-[100%] bg-[#efefef] rounded-[32px] overflow-hidden">
                             <NuxtImg format="webp" src="/images/home-featured-products/metalized-printed-boxes.jpg"
-                                alt="Metalized Printed Boxes Thumbnail" loading="lazy" fit="cover" width="336" height="336"
+                                alt="Metalized Printed Boxes Thumbnail" loading="lazy" fit="cover" width="390" height="390"
                                 class="w-full h-auto" />
                         </div>
                         <div class="desc__wrap py-[10px]">

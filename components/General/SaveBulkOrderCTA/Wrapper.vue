@@ -4,6 +4,18 @@ const { setIsModalShow } = useGlobalStore();
 const openModal = () => {
   setIsModalShow(true);
 }
+
+const props = defineProps({
+  subtitle: {
+    type: String,
+    default: () => 'Need more this year?'
+  },
+  title: {
+    type: String,
+    default: () => '<span class="text-[#ef4b5f]">Save 30%</span> on Bulk Orders'
+  }
+});
+
 </script>
 
 <template>
@@ -26,11 +38,12 @@ const openModal = () => {
                     </svg>
                     <div class="mx-auto md:w-[calc(100%_-_200px)] text-left lg:mx-0 lg:flex-auto lg:py-[30px] mb-[30px] md:mb-0">
                         <div class="flex flex-wrap md:flex-nowrap items-center">
-                            <span
-                                class="font-description inline-block text-white text-[18px] font-semibold leading-[18px] px-0 rounded-[6px] mb-[10px] md:mb-0 md:mr-[20px] w-full md:w-auto text-center md:text-left">Need more this year?</span>
-                            <h2 class="font-headings text-[30px] md:text-[25px] leading-[34px] md:leading-[28px] font-bold tracking-tight text-white w-full md:w-auto text-center md:text-left"><span
-                                    class="text-[#ef4b5f]">Save 30%</span> on Bulk Orders
-                            </h2>
+                            <!-- <span class="font-description inline-block text-white text-[18px] font-semibold leading-[18px] px-0 rounded-[6px] mb-[10px] md:mb-0 md:mr-[20px] w-full md:w-auto text-center md:text-left">Need more this year?</span> -->
+                            <span class="font-description inline-block text-white text-[18px] font-semibold leading-[18px] px-0 rounded-[6px] mb-[10px] md:mb-0 md:mr-[20px] w-full md:w-auto text-center md:text-left">{{ props.subtitle }}</span>
+                            <h2 class="font-headings text-[30px] md:text-[25px] leading-[34px] md:leading-[28px] font-bold tracking-tight text-white w-full md:w-auto text-center md:text-left" v-html="props.title" />
+                                <!-- <span class="text-[#ef4b5f]">Save 30%</span> on Bulk Orders -->
+                                 <!-- {{ props.title }} -->
+                            <!-- </h2> -->
                         </div>
                     </div>
                     <div class="flex items-center w-full md:w-[200px] justify-center gap-x-6">

@@ -149,7 +149,8 @@ useHead({
   <div class="hpp__categoryDetailPageWrap">
     <ProductDetailBannerWrapper :title="data?.product?.name" :description="data?.product?.title"
       :industry="data?.product?.industry" :galleryImages="data?.product?.galleryimages" />
-    <HomeReviewLogosWrapper />
+      <HomeReviewLogosWrapper />
+    <!-- <GeneralLogosBarWrapper /> -->
     <LazyProductDetailDescriptionWrapper :shortDescription="data?.product?.short_description"
       :featureImage="data?.product?.feature_image" :fAltTag="data?.product?.feature_image_alt" />
     <LazyProductDetailTabsWrapper />
@@ -159,8 +160,11 @@ useHead({
       :bgAlt="data?.product?.cta_image2_alt" />
     <LazyProductDetailMoreInfoWrapper :content="data?.product?.content" :title="data?.product?.name" />
     <LazyProductDetailRelatedProductsWrapper :product_id="data?.product?.id" />
-    <LazyProductDetailFaqWrapper :faqs="data?.product?.faq"
-      v-if="data?.product?.faq && data?.product?.faq[0]?.question != ''" />
+    <!-- <LazyProductDetailFaqWrapper :faqs="data?.product?.faq"
+      v-if="data?.product?.faq && data?.product?.faq[0]?.question != ''" /> -->
+    <!-- <LazyProductDetailFaqWrapper :faqs="generingFaqs" v-else /> -->
+    <LazyGeneralFaqWrapper :faqs="data?.product?.faq"
+    v-if="data?.product?.faq && data?.product?.faq[0]?.question != ''" />
     <LazyProductDetailFaqWrapper :faqs="generingFaqs" v-else />
     <LazyGeneralSampleKitWrapper />
     <!-- Dynamic BreadCrumb Schema Script -->

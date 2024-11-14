@@ -5,7 +5,7 @@ import { useRoute, useRouter } from 'vue-router';
 const { setCategories } = useCategoriesStore();
 const { hasCategories, Categories } = storeToRefs(useCategoriesStore());
 
-const { setIsModalShow, setIsModalImage } = useGlobalStore();
+const { setIsModalShow, setIsModalImage, setIsSelectedIndustry } = useGlobalStore();
 
 const openModal = (image_path) => {
     setIsModalImage(image_path);
@@ -102,6 +102,11 @@ const backgroundStyles = computed(() => {
     const imgUrl = img('/images/industry/soap/gallery/soap-box-gallery2.jpg', { format: 'webp', width: '303px', height: '405px' })
     return { backgroundImage: `url('${imgUrl}')` }
 });
+
+const viewAllProducts = () => {
+  setIsSelectedIndustry(data?.value?.category?.id);
+  router.push('/catalogue');
+}
 
 // Set up the SEO metadata
 useSeoMeta({
@@ -220,26 +225,26 @@ useHead({
         <div class="hpp__categoryBannerWrapper pt-[20px] md:pt-[30px] bg-[#f9fafb]">
             <div class="md:container md:mx-auto px-[20px] md:px-[15px]">
                 <div class="flex flex-wrap md:flex-no-wrap">
-                    <div class="breadcrumbs__wrap w-full mb-[20px] px-[15px]">
-                        <ul class="flex items-center gap-[10px]">
+                    <div class="breadcrumbs__wrap w-full mb-[20px] md:px-[15px]">
+                        <ul class="flex flex-wrap items-center gap-[5px] md:gap-[10px]">
                             <li><a href="/" aria-label="Home Page Link"><svg xmlns="http://www.w3.org/2000/svg"
                                         fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"
-                                        class="size-5">
+                                        class="size-4 md:size-5">
                                         <path stroke-linecap="round" stroke-linejoin="round"
                                             d="m2.25 12 8.954-8.955c.44-.439 1.152-.439 1.591 0L21.75 12M4.5 9.75v10.125c0 .621.504 1.125 1.125 1.125H9.75v-4.875c0-.621.504-1.125 1.125-1.125h2.25c.621 0 1.125.504 1.125 1.125V21h4.125c.621 0 1.125-.504 1.125-1.125V9.75M8.25 21h8.25" />
                                     </svg></a></li>
                             <li><span class="divider"><svg xmlns="http://www.w3.org/2000/svg" fill="none"
-                                        viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-4">
+                                        viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-3 md:size-4">
                                         <path stroke-linecap="round" stroke-linejoin="round"
                                             d="m8.25 4.5 7.5 7.5-7.5 7.5" />
                                     </svg></span></li>
-                            <li><a href="/industries">Industry</a></li>
+                            <li><a href="/industries" class="font-description text-sm md:text-base">Industry</a></li>
                             <li><span class="divider"><svg xmlns="http://www.w3.org/2000/svg" fill="none"
-                                        viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-4">
+                                        viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-3 md:size-4">
                                         <path stroke-linecap="round" stroke-linejoin="round"
                                             d="m8.25 4.5 7.5 7.5-7.5 7.5" />
                                     </svg></span></li>
-                            <li><span>{{ data?.category?.title }} </span></li>
+                            <li><span class="font-description text-sm md:text-base">{{ data?.category?.title }} </span></li>
                         </ul>
                     </div>
                     <div class="content__wrap w-full md:w-[60%] mb-10 md:mb-0">
@@ -269,7 +274,7 @@ useHead({
                             class="font-headings text-[36px] leading-[40px] font-bold tracking-tight text-gray-900 md:text-4xl mb-6 md:mb-6">
                             Get an Instant Quote</h2>
                         <ProductDetailBannerForm :title="data?.category?.sub_title" :products="data?.related_products" />
-                        <div class="logos__wrapper">
+                        <!-- <div class="logos__wrapper">
                             <div class="flex items-center -mx-[15px]">
                                 <div class="icon__wrap px-[15px]">
                                     <svg class="w-[140px]" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 1050">
@@ -330,12 +335,13 @@ useHead({
                                     </svg>
                                 </div>
                             </div>
-                        </div>
+                        </div> -->
                     </div>
                 </div>
             </div>
         </div>
         <!-- Banner End -->
+        <!-- <GeneralLogosBarWrapper /> -->
         <HomeReviewLogosWrapper />
 
         <div class="hpp__catProductsWrapper pt-[50px] pb-[50px] bg-white">
@@ -348,7 +354,8 @@ useHead({
                             <div class="divider__wrap flex bg-[#999999] h-[20px] w-[1px] mx-[15px]"></div>
                             <p class="font-description text-[#212529] text-[16px] leading-[24px] mb-0">We cover all your
                                 packaging needs. Can't find yours?
-                                <NuxtLink to="/catalogue"
+                                <NuxtLink to="#"
+                                    @click="viewAllProducts"
                                     class="font-description ml-[10px] text-[#ef4b5f] text-[13px] uppercase font-bold inline-flex items-center">
                                     <span>View All</span><svg xmlns="http://www.w3.org/2000/svg" fill="none"
                                         viewBox="0 0 24 24" stroke-width="4" stroke="currentColor" class="size-3 ml-1">
@@ -366,7 +373,8 @@ useHead({
                         <p class="font-description text-[#212529] text-[16px] leading-[24px] mb-[20px]">We cover all
                             your
                             packaging needs. Can't find yours?</p>
-                        <NuxtLink to="/catalogue"
+                        <NuxtLink to="#"
+                                @click="viewAllProducts"
                             class="font-description text-[#ef4b5f] text-[16px] uppercase font-bold inline-flex items-center">
                             <span>View All</span><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
                                 stroke-width="4" stroke="currentColor" class="size-3 ml-1">
@@ -480,7 +488,8 @@ useHead({
                                     <h3 class="font-headings text-[24px] leading-[30px] font-bold mb-6">
                                         Explore all {{ data?.category?.sub_title }} Products</h3>
                                     <div class="btn__wrap">
-                                        <NuxtLink to="/catalogue"
+                                        <NuxtLink to="#"
+                                           @click="viewAllProducts"
                                             class="font-description block ease-in-out duration-[0.3s] text-[#ffffff] text-sm bg-[#bc3042] rounded-[6px] py-[8px] px-[30px] border border-[#d4486f] border-solid hover:bg-[#ef4b5f] hover:border-[#ef4b5f] text-center">View All</NuxtLink>
                                     </div>
                                 </div>

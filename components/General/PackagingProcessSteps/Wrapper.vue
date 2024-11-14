@@ -54,8 +54,8 @@ const items = [{
                             // active: 'text-white dark:text-white bg-[#ef4b5f]',
                             // inactive: 'text-gray-500 dark:text-gray-400 bg-gray-100',
                             height: 'h-10',
-                            size: 'text-sm',
-                            font: 'font-headings font-semibold text-[#ef4b5f] uppercase',
+                            size: 'text-base',
+                            font: 'text-base font-headings font-semibold text-[#ef4b5f] uppercase',
                         }
                     }
                 }">

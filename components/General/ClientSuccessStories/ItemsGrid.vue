@@ -36,7 +36,7 @@
                     <NuxtLink to="#"
                         class="relative flex flex-wrap items-center bg-white cursor-pointer font-mori group tracking-mori rounded-[20px] sm:rounded-b-[12px] sm:rounded-t-[36px] sm:hover:shadow-xl sm:border-[2px] sm:border-white sm:hover:border-[#fbfbfb] transition-all duration-300">
                         <div class="thumb__wrap w-[100%] bg-[#efefef] rounded-[22px] overflow-hidden">
-                            <NuxtImg format="webp" src="/images/client-success-stories/drink-jems.jpg"
+                            <NuxtImg format="webp" src="/images/client-success-stories/drink-gems.jpg"
                                 alt="Drink Gems Thumbnail" loading="lazy" fit="cover" width="336" height="420"
                                 class="w-full h-auto" />
                         </div>

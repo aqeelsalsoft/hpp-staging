@@ -56,7 +56,7 @@ onBeforeUnmount(() => {
                         class="relative flex items-center sm:block bg-white px-4 sm:p-2 cursor-pointer font-mori group tracking-mori rounded-[20px] sm:rounded-b-[12px] sm:rounded-t-[36px] sm:hover:shadow-xl sm:border-[2px] sm:border-white sm:hover:border-[#fbfbfb] transition-all duration-300">
                         <div class="thumb__wrap w-[100%] bg-[#efefef] rounded-[32px] overflow-hidden">
                             <NuxtImg format="webp" src="/images/home-featured-industries/mailer-box.jpg"
-                                alt="Mailer Boxes Thumbnail" loading="lazy" fit="cover" width="336" height="336"
+                                alt="Mailer Boxes Thumbnail" loading="lazy" fit="cover" width="390" height="390"
                                 class="w-full h-auto" />
                         </div>
                         <div class="desc__wrap py-[10px]">
@@ -77,7 +77,7 @@ onBeforeUnmount(() => {
                         class="relative flex items-center sm:block bg-white px-4 sm:p-2 cursor-pointer font-mori group tracking-mori rounded-[20px] sm:rounded-b-[12px] sm:rounded-t-[36px] sm:hover:shadow-xl sm:border-[2px] sm:border-white sm:hover:border-[#fbfbfb] transition-all duration-300">
                         <div class="thumb__wrap w-[100%] bg-[#efefef] rounded-[32px] overflow-hidden">
                             <NuxtImg format="webp" src="/images/home-featured-industries/tuck-box.jpg"
-                                alt="Tuck Boxes Thumbnail" loading="lazy" fit="cover" width="336" height="336"
+                                alt="Tuck Boxes Thumbnail" loading="lazy" fit="cover" width="390" height="390"
                                 class="w-full h-auto" />
                         </div>
                         <div class="desc__wrap py-[10px]">
@@ -98,7 +98,7 @@ onBeforeUnmount(() => {
                         class="relative flex items-center sm:block bg-white px-4 sm:p-2 cursor-pointer font-mori group tracking-mori rounded-[20px] sm:rounded-b-[12px] sm:rounded-t-[36px] sm:hover:shadow-xl sm:border-[2px] sm:border-white sm:hover:border-[#fbfbfb] transition-all duration-300">
                         <div class="thumb__wrap w-[100%] bg-[#efefef] rounded-[32px] overflow-hidden">
                             <NuxtImg format="webp" src="/images/home-featured-industries/mylar-bag.jpg"
-                                alt="Mylar Bags and Pouches Thumbnail" loading="lazy" fit="cover" width="336" height="336"
+                                alt="Mylar Bags and Pouches Thumbnail" loading="lazy" fit="cover" width="390" height="390"
                                 class="w-full h-auto" />
                         </div>
                         <div class="desc__wrap py-[10px]">
@@ -119,7 +119,7 @@ onBeforeUnmount(() => {
                         class="relative flex items-center sm:block bg-white px-4 sm:p-2 cursor-pointer font-mori group tracking-mori rounded-[20px] sm:rounded-b-[12px] sm:rounded-t-[36px] sm:hover:shadow-xl sm:border-[2px] sm:border-white sm:hover:border-[#fbfbfb] transition-all duration-300">
                         <div class="thumb__wrap w-[100%] bg-[#efefef] rounded-[32px] overflow-hidden">
                             <NuxtImg format="webp" src="/images/home-featured-industries/rigid-boxes.jpg"
-                                alt="Rigid Boxes Thumbnail" loading="lazy" fit="cover" width="336" height="336"
+                                alt="Rigid Boxes Thumbnail" loading="lazy" fit="cover" width="390" height="390"
                                 class="w-full h-auto" />
                         </div>
                         <div class="desc__wrap py-[10px]">
@@ -140,7 +140,7 @@ onBeforeUnmount(() => {
                         class="relative flex items-center sm:block bg-white px-4 sm:p-2 cursor-pointer font-mori group tracking-mori rounded-[20px] sm:rounded-b-[12px] sm:rounded-t-[36px] sm:hover:shadow-xl sm:border-[2px] sm:border-white sm:hover:border-[#fbfbfb] transition-all duration-300">
                         <div class="thumb__wrap w-[100%] bg-[#efefef] rounded-[32px] overflow-hidden">
                             <NuxtImg format="webp" src="/images/home-featured-industries/labels-and-stickers.jpg"
-                                alt="Labels & Stickers Thumbnail" loading="lazy" fit="cover" width="336" height="336"
+                                alt="Labels & Stickers Thumbnail" loading="lazy" fit="cover" width="390" height="390"
                                 class="w-full h-auto" />
                         </div>
                         <div class="desc__wrap py-[10px]">
@@ -161,7 +161,7 @@ onBeforeUnmount(() => {
                         class="relative flex items-center sm:block bg-white px-4 sm:p-2 cursor-pointer font-mori group tracking-mori rounded-[20px] sm:rounded-b-[12px] sm:rounded-t-[36px] sm:hover:shadow-xl sm:border-[2px] sm:border-white sm:hover:border-[#fbfbfb] transition-all duration-300">
                         <div class="thumb__wrap w-[100%] bg-[#efefef] rounded-[32px] overflow-hidden">
                             <NuxtImg format="webp" src="/images/home-featured-industries/custom-product-dispenser-box.jpg"
-                                alt="Dispenser Boxes Thumbnail" loading="lazy" fit="cover" width="336" height="336"
+                                alt="Dispenser Boxes Thumbnail" loading="lazy" fit="cover" width="390" height="390"
                                 class="w-full h-auto" />
                         </div>
                         <div class="desc__wrap py-[10px]">
@@ -182,7 +182,7 @@ onBeforeUnmount(() => {
                         class="relative flex items-center sm:block bg-white px-4 sm:p-2 cursor-pointer font-mori group tracking-mori rounded-[20px] sm:rounded-b-[12px] sm:rounded-t-[36px] sm:hover:shadow-xl sm:border-[2px] sm:border-white sm:hover:border-[#fbfbfb] transition-all duration-300">
                         <div class="thumb__wrap w-[100%] bg-[#efefef] rounded-[32px] overflow-hidden">
                             <NuxtImg format="webp" src="/images/home-featured-industries/cigarette-boxes.jpg"
-                                alt="Cigarette Boxes Thumbnail" loading="lazy" fit="cover" width="336" height="336"
+                                alt="Cigarette Boxes Thumbnail" loading="lazy" fit="cover" width="390" height="390"
                                 class="w-full h-auto" />
                         </div>
                         <div class="desc__wrap py-[10px]">

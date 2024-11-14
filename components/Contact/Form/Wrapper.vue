@@ -21,6 +21,7 @@ const form = reactive({
   width: '',
   height: '',
   unit: '',
+  extra_field: '',
   quantity: '',
   file: null,
   description: '',
@@ -33,7 +34,11 @@ const isProcessing = ref(false);
 
 
 const onSubmit = async () => {
-  if(!phoneError.value && !emailError.value && !quantityError.value){
+  if (form.extra_field) {
+    console.log("Bot detected: honeypot field is filled.");
+    return false;
+  }
+  if(!phoneError.value && !emailError.value){
     try {
     isProcessing.value = true
     const formData = new FormData()
@@ -52,7 +57,7 @@ const onSubmit = async () => {
     formData.append('unit', form.unit)
     formData.append('quantity', form.quantity)
     formData.append('lead_source', 'Web')
-    formData.append('medium', ' Custom Quote Form')
+    formData.append('medium', ' Contact Us Form')
     formData.append('file', null)
     formData.append('description', form.description)
     formData.append('first_page_url', window.location.origin + FirstPageUrl.value)
@@ -65,7 +70,7 @@ const onSubmit = async () => {
 
     isProcessing.value = false;
     resetForm();
-    router.push('/thank-you-custom-quote-form');
+    router.push('/thank-you');
   } catch (error) {
     console.error(error)
     isProcessing.value = false
@@ -98,7 +103,12 @@ const rules = {
   isNumeric: (value) => /^[+\d\s()-]+$/.test(value) || 'Phone number is not valid',
   minLength: (value, length = 6) => value.length >= length || `Phone number must be at least ${length} digits long`,
   isEmail: (value) => /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(value) || 'Email must be valid',
-  isQuantity: (value) => value >= 200 || 'Min 200 | Great Savings on Larger QTY', 
+  isQuantity: (value) => {
+    if (!/^\d+$/.test(value)) {
+      return 'Please enter a valid number';
+    }
+    return value >= 200 || 'Min 200 | Great Savings on Larger QTY';
+  }
 };
 
 
@@ -172,6 +182,13 @@ const validate = () => {
             </div>
             <div class="px-[25px] w-full bg-white rounded-[32px]">
                 <form id="hpp__instantPricesForm" @submit.prevent="onSubmit" class="mb-0">
+                  <input
+                      type="text"
+                      name="extra_field"
+                      v-model="form.extra_field"
+                      class="hidden"
+                      autocomplete="off"
+                    />
                     <div class="flex flex-wrap ml-[-5px] mr-[-5px]">
                         <div class="relative w-[50%] px-[5px] mb-[10px]">
                             <label for="ipf-full-name" class="sr-only">Full Name</label>

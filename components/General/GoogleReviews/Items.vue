@@ -4,7 +4,7 @@ const reviews = [{
     "author_url": "https://www.google.com/maps/contrib/110616067854594571359/reviews",
     "language": "en",
     "original_language": "en",
-    "profile_photo_url": "https://lh3.googleusercontent.com/a/ACg8ocKp8uOLVZFFIpanAeCLe0xrOj52ZvfihSRL5278na3799Bv6w=s128-c0x00000000-cc-rp-mo",
+    "profile_photo_url": "/images/google-reviews-users/sudha-sikha.png",
     "rating": 5,
     "relative_time_description": "2 months ago",
     "text": "Fantastic product quality and exceptional customer service! We had an outstanding experience with Half Price Packaging. Ross from their sales team was incredibly patient, working closely with us to curate packaging that perfectly aligned with our brand’s needs. The final output exceeded our expectations, and both our customers and our team were thrilled with the results. Thank you, Half Price Packaging!",
@@ -16,7 +16,7 @@ const reviews = [{
     "author_url": "https://www.google.com/maps/contrib/104934767495503306159/reviews",
     "language": "en",
     "original_language": "en",
-    "profile_photo_url": "https://lh3.googleusercontent.com/a/ACg8ocIqueAgV6hgcr_7b9t1JKEu43xzoFjpN2O96INf3v8FlYdkHw=s128-c0x00000000-cc-rp-mo",
+    "profile_photo_url": "/images/google-reviews-users/lisa-nelson.png",
     "rating": 5,
     "relative_time_description": "5 months ago",
     "text": "We hired Half Price Packaging to create new boxes for some of our products and we couldn't be happier with the outcome. Our products look so professional and Ross was incredibly helpful throughout the process. Highly recommend them for any packaging needs you have. Great people, great company!",
@@ -28,7 +28,7 @@ const reviews = [{
     "author_url": "https://www.google.com/maps/contrib/100920878920865547942/reviews",
     "language": "en",
     "original_language": "en",
-    "profile_photo_url": "https://lh3.googleusercontent.com/a/ACg8ocJn_-d0-hRL675N1rMsh_Tg43zK4xZXIEjDX3vezVuss28-Qg=s128-c0x00000000-cc-rp-mo",
+    "profile_photo_url": "/images/google-reviews-users/samuel-palmer.png",
     "rating": 5,
     "relative_time_description": "a month ago",
     "text": "I am extremely pleased with my order from Half Price Packaging. Aaron, my sales rep, was responsive and helpful throughout the process. And the design team was able to fix an issue I've had ordering from other, automated packaging services.\n\nI will be giving them a try again the next time I need packaging or labels\n\nSam\nembodyharmonics.com",
@@ -40,7 +40,7 @@ const reviews = [{
     "author_url": "https://www.google.com/maps/contrib/113716000008616965381/reviews",
     "language": "en",
     "original_language": "en",
-    "profile_photo_url": "https://lh3.googleusercontent.com/a-/ALV-UjVnPcRuZacaMhOrskLjjdPWb5VaLrdg8yM_EWXk2qD3hDczMS4X=s128-c0x00000000-cc-rp-mo-ba2",
+    "profile_photo_url": "/images/google-reviews-users/tod-barnett.png",
     "rating": 5,
     "relative_time_description": "2 months ago",
     "text": "The communication was probably my favorite part of the process. The entire team was included on most communications, so all questions could be answered quickly, clearly and professionally, without overly communicating or badgering. The product quality team caught an issue and corrected it before I received the product, so once I got my boxes they were all perfect.\n\nThe price was right, the turnaround was good, and the customer service was strong. I’ll be returning to this company in the future for my next projects.",
@@ -52,7 +52,7 @@ const reviews = [{
     "author_url": "https://www.google.com/maps/contrib/116001581740685113649/reviews",
     "language": "en",
     "original_language": "en",
-    "profile_photo_url": "https://lh3.googleusercontent.com/a/ACg8ocJpjZp_YwYpW43bGF3WL72OUfVJ8xRBCGZnyzsDvXeHZwdy6A=s128-c0x00000000-cc-rp-mo-ba2",
+    "profile_photo_url": "/images/google-reviews-users/lindsey-stone.png",
     "rating": 5,
     "relative_time_description": "a week ago",
     "text": "I own a small business, and I struggled for weeks trying to find a company to purchase my custom boxes from. Thankfully I found Half Priced Packaging, and the boxes are BEAUTIFUL! The price is unbeatable, I will definitely be a repeat customer :)",
@@ -67,12 +67,12 @@ const reviews = [{
     <div class="bg-[#f6f6f6] p-[20px] rounded-[16px] mb-4 h-full" v-for="item in reviews">
         <div class="flex">
             <!-- User Avatar -->
-            <div class="thumb__wrapper w-[50px]">
+            <div class="thumb__wrapper w-[40px] md:w-[50px]">
                 <NuxtImg loading="lazy" format="webp" :src=item.profile_photo_url :alt=item.author_name
-                    class="w-[50px] h-[50px] rounded-full" width="50" height="50" />
+                    class="w-[40px] md:w-[50px] h-[40px] md:h-[50px] rounded-full" width="50" height="50" />
             </div>
             <!-- User Info -->
-            <div class="author__contentWrap w-[calc(100%_-_50px)] pl-[20px]">
+            <div class="author__contentWrap w-[calc(100%_-_40px)] md:w-[calc(100%_-_50px)] pl-[20px]">
                 <div class="font-medium flex items-center">
                     <span class="font-headings text-[18px] leading-[24px] font-bold mr-[8px]">{{
                         item.author_name
@@ -149,7 +149,7 @@ const reviews = [{
                             </li>
                         </ul>
                     </div>
-                    <p class="font-description text-[14px] leading-[22px]">{{ item.text }}</p>
+                    <p class="font-description text-[12px] text-[14px] leading-[22px]">{{ item.text }}</p>
                 </div>
             </div>
         </div>

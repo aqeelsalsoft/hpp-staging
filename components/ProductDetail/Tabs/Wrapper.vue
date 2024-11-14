@@ -1,54 +1,169 @@
 <script lang="ts" setup>
+import { ref } from 'vue';
+
 const items = [{
-    key: 'materials',
+    key: 0,
     label: 'Materials',
-    icon: 'i-heroicons-information-circle',
+    icon: 'i-hugeicons:layers-01',
 }, {
-    key: 'adons',
-    label: 'Ad-Ons & Finishing',
-    icon: 'i-heroicons-arrow-down-tray',
+    key: 1,
+    label: 'Add-Ons & Finishing',
+    icon: 'i-hugeicons:puzzle',
 }, {
-    key: 'paperWeight',
+    key: 2,
     label: 'Paper Weight',
-    icon: 'i-heroicons-eye-dropper',
+    icon: 'i-tabler-weight',
 }, {
-    key: 'shipping',
+    key: 3,
     label: 'Shipping',
-    icon: 'i-heroicons-eye-dropper',
+    icon: 'i-hugeicons-cargo-ship',
 }]
+
+// Set initial active tab using the key of the first item.
+const activeTab = ref(items[0].key);
+
 </script>
 
 <template>
     <div class="hpp__productTabsContentWrapper pt-[50px] pb-[50px] bg-white">
         <div class="container mx-auto px-[15px]">
-            <UTabs :items="items" class="w-full">
+            <UTabs v-model="activeTab" :items="items" class="w-full" :ui="{
+                list: {
+                    base: '!grid-cols-1 md:!grid-cols-4 mb-8 md:mb-2 gap-[10px] md:!p-[6px]',
+                    background: 'bg-slate-50 md:bg-gray-100',
+                    height: '!h-auto',
+                    tab: {
+                        base: 'w-full md:w-auto',
+                        active: 'text-white dark:text-white bg-[#ef4b5f]',
+                        // active: 'text-white dark:text-white bg-[#ef4b5f]',
+                        // inactive: 'text-gray-500 dark:text-gray-400 bg-gray-100',
+                        height: 'h-10',
+                        size: 'text-base',
+                        font: 'font-headings font-semibold text-[#ef4b5f] uppercase',
+                    }
+                }
+            }">
                 <template #item="{ item }">
                     <UCard>
-                        <div v-if="item.key === 'materials'" class="space-y-3">
-                            <div class="flex">
-                                <div class="desc__wrapper basis-1/2">
-                                    <p class="font-description text-[14px] leading-[22px] text-gray-600 mb-[15px]">Discover our range of high-quality packaging materials designed to tailor your packaging order to perfection. From sturdy cardboard boxes to eco-friendly options, we have the ideal materials for your unique needs. Elevate your brand and protect your products with our customizable packaging solutions</p>
+                        <div v-if="item.key === 0" class="space-y-3">
+                            <div class="flex flex-wrap">
+                                <div class="desc__wrapper w-full md:w-[50%] mb-[30px] md:mb-0 md:pr-[50px]">
+                                    <p class="font-description text-base text-gray-600 mb-[15px]">Discover
+                                        our range of high-quality packaging materials designed to tailor your packaging
+                                        order to perfection. From sturdy cardboard boxes to eco-friendly options, we
+                                        have the ideal materials for your unique needs. Elevate your brand and protect
+                                        your products with our customizable packaging solutions</p>
+                                </div>
+                                <div class="w-full md:w-[50%]">
+                                    <ClientOnly>
+                                        <LazyProductDetailTabsMaterialsCarousel :isActive="activeTab === 0" />
+                                    </ClientOnly>
                                 </div>
                             </div>
                         </div>
-                        <div v-else-if="item.key === 'adons'" class="space-y-3">
-                            <div class="flex">
-                                <div class="desc__wrapper basis-1/2">
-                                    <p class="font-description text-[14px] leading-[22px] text-gray-600 mb-[15px]">Elevate your packaging with our premium add-ons. Choose from lamination, foiling, coatings, and other finishing options to create packaging that reflects your brand's elegance and style. Tailor your order to your exact preferences for a distinctive and eye-catching presentation and make a lasting impression</p>
+                        <div v-else-if="item.key === 1" class="space-y-3">
+                            <div class="flex flex-wrap">
+                                <div class="desc__wrapper w-full md:w-[50%] mb-[30px] md:mb-0 md:pr-[50px]">
+                                    <p class="font-description text-base text-gray-600 mb-[15px]">Elevate
+                                        your packaging with our premium add-ons. Choose from lamination, foiling,
+                                        coatings, and other finishing options to create packaging that reflects your
+                                        brand's elegance and style. Tailor your order to your exact preferences for a
+                                        distinctive and eye-catching presentation and make a lasting impression</p>
+                                </div>
+                                <div class="w-full md:w-[50%]">
+                                    <ClientOnly>
+                                        <LazyProductDetailTabsAdonsCarousel :isActive="activeTab === 1" />
+                                    </ClientOnly>
                                 </div>
                             </div>
                         </div>
-                        <div v-else-if="item.key === 'paperWeight'" class="space-y-3">
-                            <div class="flex">
-                                <div class="desc__wrapper basis-1/2">
-                                    <p class="font-description text-[14px] leading-[22px] text-gray-600 mb-[15px]">Select from a range of packaging paper thicknesses, from 8pt to 28pt, to meet your specific needs. Rigid boxes demand greater thickness for durability and luxury, capable of supporting your product's weight. Make a wise choice that aligns with your budget while ensuring your packaging exudes quality and resilience</p>
+                        <div v-else-if="item.key === 2" class="space-y-3">
+                            <div class="flex flex-wrap">
+                                <div class="desc__wrapper w-full md:w-[50%] mb-[30px] md:mb-0 md:pr-[50px]">
+                                    <p class="font-description text-base text-gray-600 mb-[15px]">Select from
+                                        a range of packaging paper thicknesses, from 8pt to 28pt, to meet your specific
+                                        needs. Rigid boxes demand greater thickness for durability and luxury, capable
+                                        of supporting your product's weight. Make a wise choice that aligns with your
+                                        budget while ensuring your packaging exudes quality and resilience</p>
+                                </div>
+                                <div class="w-full md:w-[50%]">
+                                    <ClientOnly>
+                                        <LazyProductDetailTabsPaperWeightCarousel :isActive="activeTab === 2" />
+                                    </ClientOnly>
                                 </div>
                             </div>
                         </div>
-                        <div v-else-if="item.key === 'shipping'" class="space-y-3">
-                            <div class="flex">
-                                <div class="desc__wrapper basis-1/2">
-                                    <p class="font-description text-[14px] leading-[22px] text-gray-600 mb-[15px]">Experience worry-free shipping with our packaging solutions. Whether you choose ground or air shipments, we offer guaranteed insured freight options, ensuring your packaging orders arrive safely and securely. Relax knowing your products are in reliable hands from production to delivery</p>
+                        <div v-else-if="item.key === 3" class="space-y-3">
+                            <div class="flex flex-wrap">
+                                <div class="desc__wrapper w-full md:w-[50%] mb-[30px] md:mb-0 md:pr-[50px]">
+                                    <p class="font-description text-base text-gray-600 mb-0">Experience
+                                        worry-free shipping with our packaging solutions. Whether you choose ground or
+                                        air shipments, we offer guaranteed insured freight options, ensuring your
+                                        packaging orders arrive safely and securely. Relax knowing your products are in
+                                        reliable hands from production to delivery</p>
+                                </div>
+                                <div class="logos__wrapper w-full md:w-[50%] md:pl-[50px]">
+                                    <div class="grid grid-cols-3 gap-[20px] md:gap-[30px] items-center">
+                                        <div class="logo flex items-center">
+                                            <svg class="w-full h-auto" viewBox="0 0 234 39.07">
+                                                <path
+                                                    d="M8.3,.2h.29l.49,.1,.59,.1,1.56,.39,2.15,.39,1.17,.3,1.27,.29,1.37,.2,1.37,.39,1.47,.19,1.46,.39,4.69,.88,1.47,.39,1.56,.29,1.36,.29,1.47,.29,1.37,.29,1.37,.2,1.17,.29,1.17,.19,.98,.29,.88,.2,.78,.1,.68,.1,.49,.1,.29,.1h.19l1.27,.29,1.17,.2,.98,.29,.78,.19,.78,.29,.59,.2,.78,.39,.29,.2,.49,.49v.1l.1,.1v.1h4.2l.39,.1h.39l.29,.1h.29l.29,.1,.78,.39,.1,.2,.68,1.07,.2,1.27-.2,1.56-.49,1.46-.59,1.46-.59,1.17-.49,.78-.19,.29-.2,.1-.49,.19-.68,.29-.98,.39-1.07,.39-1.37,.58-1.47,.59-1.66,.59-1.86,.78-1.95,.68-1.95,.78-4.3,1.76-2.25,.88-2.25,.78-2.24,.97-2.34,.88-2.25,.78-2.15,.98-2.24,.78-2.05,.78-3.91,1.56-1.76,.68-1.66,.59-1.46,.58-1.27,.49-1.08,.49-.88,.29-.68,.29-.39,.1-.1,.1H55.28L63.49,0H8.3V.2Z"
+                                                    fill="#284e80" />
+                                                <path
+                                                    d="M46.1,12.8l-.29,.1-1.95,.39h-.49l-.39,.1h-.39l-.59,.1-.29,.1-.2,.1-.1,.2v.19l.2,.2h.39l.39,.1h.98l.59-.1h.59l1.37-.2h.68l.78-.1,.68-.09,.59-.1,.68-.1h2.64l.29,.1,.2,.1,.19,.29v.39l-.1,.39-.1,.49-.2,.59-.29,.68-.2,.68-.1,.39,.19,.2,.2-.1,.39-.39,.19-.29,.29-.49,.29-.59,.29-.68,.29-.58,.2-.59,.1-.49v-.59l-.19-.49-.29-.29-.39-.29-.49-.2-.59-.1-.68-.1h-4.1l-.1,.1h-.1l-.19,.1-.2,.39-.19,.1-.2,.2-.29,.2h0Z"
+                                                    fill="#284e80" />
+                                                <path
+                                                    d="M6.45,8.99L0,38.87l.29-.1,.59-.39,.98-.39,1.27-.68,1.46-.68,1.66-.88,1.95-.88,1.86-.98,1.95-.88,1.85-.98,1.86-.88,1.76-.88,1.47-.78,1.27-.58,.98-.49,.68-.29,.98-.49,.88-.49,1.07-.49,1.07-.58,.98-.49,1.17-.49,1.07-.59,1.17-.49,1.17-.59,5.86-2.44,2.64-.88,.39-.1,.39-.19,.49-.1,1.76-.59,2.05-.59,.68-.1,2.05-.59,1.17-.19,.39-.1,.29-.1h.29l.29-.1,.2-.2h.1v-.1l-.2-.39-.29-.1-.39-.1h-.39l-.58-.1h-.59l-.68,.1-1.17,.1-1.27,.19-1.37,.29-1.47,.3-1.46,.39-1.56,.49-1.47,.49-1.56,.49-1.46,.59-1.47,.49-1.37,.49-1.27,.49-1.17,.59-.98,.39-.88,.39-.68,.39-3.71-11.53h23.64l.1-.49-.39-.49-.59-.29-.88-.29-.98-.29-2.54-.39-4.1-.29H6.45Z"
+                                                    fill="#284e80" />
+                                                <path d="M233.76,20.34H68.27l.24-2.49H234l-.24,2.49Z" fill="#ca4256" />
+                                                <path
+                                                    d="M75.79,14.85l-1.27-.1-1.27-.29-.98-.29-.88-.59-.58-.68-.39-.88-.1-.97,.1-1.17,.49-2.15,.39-1.95,.39-1.66,.29-1.37,.2-1.17,.19-.88,.1-.49,.1-.2h3.22l-.1,.39-.19,.98-.39,1.46-.29,1.66-.39,1.66-.49,2.44-.1,.29-.1,.78v1.37l.19,.49,.39,.39,.49,.29,.68,.19,.78,.1,.88-.1,.68-.1,.68-.29,.49-.49,.39-.49,.39-.59,.59-1.56,.1-.78,.29-1.17,.3-1.46,.29-1.56,.39-1.47,.2-1.27,.19-.88,.1-.29h3.22l-.59,2.83-.29,1.47-.2,.49v.19l-.1,.59-.29,1.46-.68,2.83-.1,.58-.29,.59-.2,.49-.29,.49-.39,.49-.78,.78-.49,.29-.58,.29-.49,.29-.58,.19-.59,.1-.59,.19-1.37,.2h-.78ZM226.01,2.35h-4.59l-.78,.19-.58,.39-.1,.19-.1,.29v.39l.1,.39,.29,.39,.29,.49,.88,.88,.58,.39,.49,.39,.59,.49,.97,.98,.39,.49,.58,1.17,.1,.58-.1,.68-.19,.69-.29,.68-.49,.59-.68,.49-.78,.39-.98,.29-1.27,.2-1.37,.1h-4.98l.58-2.34h5.27l.49-.1,.39-.1,.29-.19,.29-.39,.19-.39-.1-.78-.58-.78-.98-.78-.98-.88-1.07-.98-.88-1.08-.58-1.08-.1-1.27,.19-.68,.39-.78,.39-.59,.68-.49,.88-.39,.88-.29,1.17-.2h5.66l-.49,2.34h0Zm-11.33,0h-7.32l-.88,3.81h6.45l-.49,2.05h-6.45l-.78,4.01h7.33l-.49,2.34h-10.55L204.63,0h10.55l-.49,2.34h0Zm-12.7,0h-4.49l-2.64,12.21h-3.22l2.64-12.21h-4.59L190.27,0h12.21l-.49,2.34h0Zm-22.46,12.21l1.27-2.34h4.59l-1.27-9.28-6.45,11.62h-3.22L182.84,0h3.81l2.25,14.55h-9.38Zm-.59-12.21h-4.49l-2.64,12.21h-3.22l2.64-12.21h-4.59L167.22,0h12.21l-.49,2.34h0Zm-13.97,0h-4.49l-.49,.1-.39,.1-.29,.2-.39,.39v.68l.1,.39,.19,.39,.39,.49,.88,.88,.49,.39,.59,.39,1.46,1.47,.39,.49,.39,.59,.19,.59,.1,.58v.68l-.2,.69-.29,.68-.59,.59-.58,.49-.88,.39-.98,.29-1.17,.2-1.46,.1h-4.88l.49-2.34h5.37l.49-.1,.39-.1,.29-.19,.29-.39,.1-.39-.1-.78-.58-.78-.88-.78-.97-.88-1.08-.98-.88-1.08-.58-1.08-.1-1.27,.2-.68,.29-.78,.49-.59,.68-.49,.78-.39,.97-.29,1.17-.2h5.66l-.59,2.34h0Zm-29.5,4.88l-1.47,7.33h6.55l.78-.1h.78l1.36-.39,.78-.29,.68-.39,1.17-.78,1.17-1.17,.98-1.37,.39-.78,.29-.78,.19-.88,.1-.39,.1-.59,.19-1.37-.1-1.27-.29-1.07-.49-.98-.78-.88-.97-.59-1.27-.39-1.46-.1h-7.13l-1.56,7.23Zm10.65,0l-.1,.49-.29,.59-.19,.49-.19,.59-.29,.39-.39,.49-.78,.78-.98,.58-.49,.2-.58,.19-1.18,.2h-2.93l.97-4.98,1.08-4.88h4.2l.78,.29,.59,.39,.49,.58,.29,.59,.19,.78v1.56l-.19,.59v.1h0Zm-11.92-4.88h-7.23l-.88,3.81h6.35l-.39,2.05h-6.44l-.78,4.01h7.23l-.39,2.34h-10.55L124.24,0h10.45l-.49,2.34h0Zm-12.6,0h-4.59l-2.64,12.21h-3.12l2.64-12.21h-4.59L109.78,0h12.21l-.39,2.34Zm-17.09,12.21h-3.13L104.41,0h3.22l-3.12,14.55Zm-6.25,0h-4.01l-3.61-10.84h-.1l-2.25,10.84h-2.83L88.59,0h4.1l3.52,10.94L98.46,0h2.93l-3.13,14.55h0Zm-26.76,18.75h-.39l-.2-.1h-.59l-.19-.1h-.19l-.2-2.05h.78l.1,.1h.59l.78-.1,1.17-.39,.39-.39,.58-.78,.2-.39v-.39l.1-.49v-.49l-.1-.39-.2-.29-.58-.39h-.39l-.39-.1h-2.64l-2.64,12.21h-3.22l3.13-14.56h6.93l1.07,.1,.78,.39,.68,.49,.39,.68,.19,.68,.1,.78v.78l-.1,.68-.29,.98-.49,.88-.59,.78-.78,.68-.78,.49-1.95,.58-1.08,.1h0Zm160.77-6.74h-7.42l-.78,3.81h6.45l-.49,2.15h-6.44l-.78,4.01h7.33l-.49,2.25h-10.55l3.13-14.56h10.55l-.49,2.35h0Zm-12.99,.2l-.39-.1h-.29l-.78-.19-.49-.1h-.49l-.39-.1h-.58l-1.07,.1-.98,.29-.97,.39-.88,.68-.68,.68-.68,.88-.39,1.07-.39,1.17-.2,1.17,.1,1.07,.29,.88,.39,.68,.58,.59,.78,.49,.88,.29,.97,.1h.58l.59-.1h.49l.98-.19h.39l.49-.1,.39-.1-.78,2.44-.39,.1h-.49l-.39,.1h-.49l-.39,.1h-2.25l-1.56-.19-.68-.19-.68-.29-.58-.29-.58-.39-.49-.39-.49-.49-.29-.58-.29-.68-.29-.58-.1-.78v-.78l.1-.88,.1-.98,.29-.88,.29-.98,.78-1.56,.49-.68,1.17-1.17,.68-.49,1.36-.78,1.56-.59,.78-.19,.78-.1,.88-.1h2.05l.39,.1h.39l.39,.1h.39l.39,.1-.29,2.44h0Zm-16.11,12.01h-3.22l3.13-14.56h3.22l-3.12,14.56h0Zm-10.36,0h-3.81l-2.15-14.56h3.22l1.46,11.72,6.45-11.72h3.13l-8.31,14.56Zm-11.82-6.25l2.35,6.25h-3.52l-2.64-7.91h1.86l.58-.1,.58-.19,.49-.29,.39-.29,.39-.39,.19-.49,.2-.58,.1-.39v-.39l-.19-.59-.19-.19-.39-.19-.98-.19h-2.93l-2.64,12.21h-3.22l3.13-14.56h6.74l.97,.1,.88,.19,.68,.29,.49,.39,.39,.49,.29,.68,.1,.78v.78l-.1,.98-.29,.88-.39,.78-.49,.58-.59,.58-.78,.39-.68,.29-.78,.09h0Zm-9.28-5.96h-7.33l-.78,3.81h6.35l-.39,2.15h-6.45l-.78,4.01h7.33l-.49,2.25h-10.65l3.13-14.56h10.55l-.49,2.35h0Zm-13.29,0h-4.1l-.98,.19-.39,.1-.19,.19-.29,.19-.19,.39v.49l.1,.39,.19,.39,.39,.39,.39,.49,.49,.39,.49,.49,.58,.39,.49,.49,.58,.39,.39,.58,.39,.49,.39,.58,.2,.49,.09,.68v.58l-.19,.78-.29,.58-1.17,1.17-.78,.39-1.08,.29-1.17,.19h-6.35l.49-2.25h5.37l.49-.1,.39-.2,.29-.19,.29-.29,.19-.39-.19-.78-.58-.78-.88-.88-.97-.88-1.08-.88-.88-1.07-.58-1.17-.1-1.17,.19-.78,.29-.68,.49-.58,.68-.49,.78-.39,.98-.29,1.17-.19,1.36-.1h4.3l-.49,2.35h0Zm-17.38,12.21h-9.87l3.03-14.56h3.32l-2.64,12.31h6.64l-.49,2.25h0Zm-20.9,0l1.27-2.25h4.59l-1.36-9.38-6.35,11.62h-3.22l8.3-14.56h3.91l2.25,14.56h-9.38s0,0,0,0Zm-.58-12.21h-4.59l-2.64,12.21h-3.22l2.64-12.21h-4.49l.49-2.35h12.21l-.39,2.35Zm-13.97,0h-4.1l-.98,.19-.29,.1-.29,.19-.39,.39-.1,.19v.49l.1,.39,.58,.78,.39,.49,.49,.39,.49,.49,.59,.39,.59,.49,.49,.39,.39,.58,.49,.49,.29,.58,.2,.49,.19,.68-.1,.58-.2,.78-.29,.58-.49,.59-.59,.58-.88,.39-1.07,.29-1.17,.19h-6.25l.39-2.25h5.47l.39-.1,.78-.39,.19-.29,.2-.39-.1-.78-.59-.78-.88-.88-1.08-.88-.98-.88-.88-1.07-.59-1.17-.2-1.17,.2-.78,.39-.68,.49-.58,.58-.49,.78-.39,1.07-.29,1.17-.19,1.27-.1h4.3l-.49,2.34h0Zm-27.15,4.98l-.2,1.57,.29,2.05,.59,1.17,.39,.58,.88,.88,.58,.39,.59,.29,.68,.29,.78,.19,.78,.1h1.66l1.56-.19,.78-.19,.78-.29,.68-.29,.59-.39,.68-.39,.59-.49,.49-.58,.59-.58,.39-.68,.78-1.56,.29-.88,.19-.98,.2-.78v-1.46l-.1-.78-.1-.68-.59-1.18-.78-.97-.49-.39-.59-.39-.59-.29-.78-.29-.68-.19-.78-.1h-1.66l-1.56,.19-.78,.19-.78,.3-.68,.29-.58,.39-.68,.49-.59,.39-.59,.59-.49,.68-.49,.58-.39,.78-.29,.78-.29,.98-.29,.88h0Zm12.21,0l-.29,1.17-.49,1.07-.49,.88-.68,.68-.78,.59-.88,.49-.88,.29-1.08,.1-1.08-.1-.78-.39-.68-.49-.49-.68-.29-.68-.19-.97v-.98l.19-.98,.29-1.17,.49-1.07,.49-.88,.68-.68,.78-.68,.88-.39,.88-.29,1.07-.1,.98,.2,.88,.19,.68,.59,.49,.59,.29,.78,.2,.88v.98l-.19,1.08h0Z" />
+                                            </svg>
+                                        </div>
+                                        <div class="logo">
+                                            <svg class="w-full h-auto" viewBox="0 0 234 32.75">
+                                                <path d="M0,30.31H28.35l-1.63,2.28H0v-2.28Z" fill="#d22027" />
+                                                <path d="M233.84,32.59h-34.71l1.79-2.28h33.08v2.28h-.16Z"
+                                                    fill="#d22027" />
+                                                <path d="M0,26.07H31.61l-1.79,2.28H0v-2.28Z" fill="#d22027" />
+                                                <path d="M0,21.84H34.87l-1.79,2.28H0v-2.28Z" fill="#d22027" />
+                                                <path d="M233.84,28.35h-31.45l1.79-2.28h29.82v2.28h-.16Z"
+                                                    fill="#d22027" />
+                                                <path d="M207.28,21.84h26.56v2.28h-28.35l1.79-2.28Z" fill="#d22027" />
+                                                <path
+                                                    d="M30.64,32.59l14.99-20.04h18.58c2.12,0,2.12,.81,.98,2.12-.98,1.3-2.77,3.75-3.75,5.05-.49,.81-1.47,1.96,1.63,1.96h24.93c-1.96,2.93-8.8,11.08-20.86,11.08-9.78-.16-36.5-.16-36.5-.16Z"
+                                                    fill="#d22027" />
+                                                <path d="M116.51,21.84l-8.15,10.92h-21.35l8.15-10.92h21.35Z"
+                                                    fill="#d22027" />
+                                                <path d="M147.64,21.84l-8.15,10.92h-21.51l8.15-10.92h21.51Z"
+                                                    fill="#d22027" />
+                                                <path
+                                                    d="M154.64,21.84s-1.63,2.12-2.28,3.1c-2.77,3.58-.33,7.82,8.47,7.82h34.55l8.15-10.92h-48.89Z"
+                                                    fill="#d22027" />
+                                                <path
+                                                    d="M41.23,.16l-7.5,9.94h40.74c2.12,0,2.12,.81,.98,2.12-.98,1.3-2.77,3.75-3.75,5.05-.49,.65-1.47,1.96,1.63,1.96h16.62s2.77-3.58,4.89-6.68c3.1-4.07,.33-12.55-10.59-12.55-9.78,.16-43.02,.16-43.02,.16Z"
+                                                    fill="#d22027" />
+                                                <path
+                                                    d="M149.43,19.23h-52.47L111.3,.16h21.51l-8.15,10.92h9.61L142.42,.16h21.51l-14.5,19.07Z"
+                                                    fill="#d22027" />
+                                                <path d="M193.59,.16l-14.34,19.07h-22.81L170.77,.16h22.81Z"
+                                                    fill="#d22027" />
+                                            </svg>
+                                        </div>
+                                        <div class="logo">
+                                            <svg class="w-full h-auto" viewBox="0 0 234 64.83">
+                                                <path
+                                                    d="M232.56,56.41c0-3.6-2.56-6.24-6.08-6.24s-6.08,2.64-6.08,6.24,2.56,6.23,6.08,6.23,6.08-2.64,6.08-6.23Zm-7.68,.32v4.08h-1.32v-8.99h3.27c1.92,0,2.8,.84,2.8,2.47,0,1.01-.68,1.8-1.56,1.92v.04c.76,.12,1.04,.8,1.2,2.04,.12,.8,.28,2.2,.57,2.53h-1.56c-.36-.85-.33-2.04-.61-3.04-.23-.76-.64-1.04-1.51-1.04h-1.28s0,0,0,0h0Zm1.63-1.16c1.28,0,1.65-.68,1.65-1.28,0-.71-.37-1.27-1.65-1.27h-1.63v2.56h1.63Zm-7.56,.84c0-4.44,3.53-7.44,7.52-7.44s7.53,3,7.53,7.44-3.52,7.44-7.53,7.44-7.52-3.01-7.52-7.44Z"
+                                                    fill="#f05b22" />
+                                                <path
+                                                    d="M192.9,62.55l-8.67-9.72-8.59,9.72h-18.08l17.67-19.85-17.67-19.86h18.64l8.76,9.65,8.43-9.65h17.99l-17.58,19.77,17.83,19.93h-18.72Zm-70.05,0V0h34.72V13.94h-20.01v8.9h20.01v13.42h-20.01v12.31h20.01v13.98h-34.72Z"
+                                                    fill="#f05b22" />
+                                                <path
+                                                    d="M108.19,0V25.6h-.16c-3.24-3.73-7.29-5.03-11.99-5.03-9.63,0-16.88,6.55-19.43,15.2-2.9-9.54-10.39-15.38-21.5-15.38-9.02,0-16.14,4.05-19.86,10.64v-8.2H16.62V13.94h20.34V0H0V62.55H16.62v-26.29h16.56c-.51,2.02-.77,4.1-.76,6.18,0,13.04,9.97,22.21,22.69,22.21,10.7,0,17.75-5.03,21.48-14.18h-14.24c-1.92,2.75-3.39,3.57-7.24,3.57-4.46,0-8.32-3.9-8.32-8.51h28.99c1.26,10.36,9.33,19.3,20.41,19.3,4.78,0,9.16-2.35,11.83-6.32h.16v4.05h14.65V0h-14.65ZM47.26,36.45c.93-3.97,4.01-6.57,7.85-6.57,4.24,0,7.16,2.52,7.93,6.57h-15.78Zm52.05,16.59c-5.4,0-8.75-5.03-8.75-10.28,0-5.62,2.92-11.01,8.75-11.01s8.46,5.4,8.46,11.01c0,5.32-2.55,10.28-8.46,10.28Z"
+                                                    fill="#302876" />
+                                            </svg>
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
                         </div>

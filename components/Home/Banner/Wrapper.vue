@@ -1,5 +1,5 @@
 <script setup>
-const { $device } = useNuxtApp();
+// const { $device } = useNuxtApp();
 </script>
 
 <template>
@@ -10,8 +10,9 @@ const { $device } = useNuxtApp();
         <!-- </ClientOnly> -->
 
         <!-- <HomeBannerSlider class="hidden md:block" /> -->
-        <HomeBannerDesktopContent class="hidden md:block" />
-        <HomeBannerMobileContent class="block md:hidden" />
+        <!-- <HomeBannerDesktopContent class="hidden md:block" /> -->
+        <!-- <HomeBannerMobileContent class="block md:hidden" /> -->
+        <HomeBannerDesktopContent />
     </div>
 </template>
 

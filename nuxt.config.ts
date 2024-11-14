@@ -73,26 +73,33 @@ export default defineNuxtConfig({
       autoImports: ["defineStore", "acceptHMRUpdate"],
     },
 
-  ], '@nuxtjs/color-mode', '@nuxtjs/sitemap', '@zadigetvoltaire/nuxt-gtm', '@nuxtjs/device'],
+  ], '@nuxtjs/color-mode', '@nuxtjs/sitemap', '@nuxtjs/device', '@nuxt/scripts'],
+  // ], '@nuxtjs/color-mode', '@nuxtjs/sitemap', '@zadigetvoltaire/nuxt-gtm', '@nuxtjs/device', '@nuxt/scripts'],
 
   device: {
     defaultUserAgent: 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/115.0.0.0 Safari/537.36', // Optional: Set default user-agent for SSR
   },
 
   nitro: {
-    preset: 'netlify',
-    future: {
-      nativeSWR: true
-    },
     prerender: {
       crawlLinks: false,
       routes: ['/', 'sitemap.xml'],
     },
+    serveStatic: true, // Ensure Nitro serves static files
+    compressPublicAssets: {
+      brotli: true
+    },
+  },
+
+  routeRules: {
+    // Apply cache settings to static files
+    '/_nuxt/**': { headers: { 'Cache-Control': 'max-age=31536000, immutable' } },
+    '/images/**': { headers: { 'Cache-Control': 'max-age=31536000, immutable' } }
   },
 
   // Nuxt Image Module Config
   image: {
-
+    
     screens: {
       default: 320,
       xxs: 480,
@@ -111,10 +118,13 @@ export default defineNuxtConfig({
     domains: ['https://hpp-staging.netlify.app/', 'https://hppfrontend-new.netlify.app/', 'https://www.halfpricepackaging.com/', 'img.youtube.com', 'i.vimeocdn.com'],
     // dir: "",
 
-    // alias: {
-    //   youtube: 'https://img.youtube.com',
-    //   vimeo: 'https://i.vimeocdn.com',
-    // }
+    alias: {
+      liveDomain: 'https://www.halfpricepackaging.com/',
+      netlifyStaging: 'https://hpp-staging.netlify.app/',
+      netlifyStaging2: 'https://hppfrontend-new.netlify.app/',
+      youtube: 'https://img.youtube.com',
+      vimeo: 'https://i.vimeocdn.com',
+    }
   },
 
   // Importing Google Fonts
@@ -146,19 +156,27 @@ export default defineNuxtConfig({
     ],
   },
 
-  gtm: {
-    id: 'GTM-WDX5T2S',
-    defer: true,
-    compatibility: true,
-    enabled: true,
-  },
+  // gtm: {
+  //   id: 'GTM-WDX5T2S',
+  //   defer: true,
+  //   compatibility: true,
+  //   enabled: true,
+  // },
+
+  // scripts: { 
+  //   registry: {
+  //     googleTagManager: {
+  //       id: 'GTM-WDX5T2S'
+  //     },
+  //   }
+  // },
 
   // imports: { dirs: ["stores"] },
 
   // Swiper Js Config
   // swiper: {
-  // Global swiper options can be configured here
-  //modules: ['autoplay', 'effect-coverflow'],
+    // Global swiper options can be configured here
+    //modules: ['autoplay', 'effect-coverflow'],
   // },
 
   // Nuxt Color Mode

@@ -7,6 +7,8 @@ useHead({
         {
             type: 'text/javascript',
             id: 'zsiqchat',
+            async: true,
+            defer: true,
             innerHTML: `
         var $zoho=$zoho || {};
         $zoho.salesiq = $zoho.salesiq || {
@@ -30,6 +32,16 @@ useHead({
         'zsiqchat': ['innerHTML']
     }
 })
+
+// useHead({
+//     script: [
+//         {
+//             id: 'ze-snippet',
+//             src: 'https://static.zdassets.com/ekr/snippet.js?key=f4360e0e-8e8d-4314-8a66-9b6126fdd0b1',
+//             async: true
+//         }
+//     ]
+// });
 
 </script>
 

@@ -29,7 +29,7 @@
                         </div>
                     </div>
                     <div class="flex flex-wrap items-center w-full md:w-[50%] justify-center gap-x-3">
-                        <a href="/HALFPRICEPACKAGING-COMPANY-PROFILE.pdf" target="_blank" rel="nofollow"
+                        <a href="/HALFPRICEPACKAGING-COMPANY-PROFILE.pdf" target="_blank"
                             class="w-full md:w-auto font-description flex items-center rounded-[6px] bg-[#ef4b5f] px-[30px] md:px-[20px] py-[10px] md:py-[8px] font-normal text-white shadow-sm hover:bg-[#7157f8] mb-4 md:mb-0 justify-center">
                             <span class="mr-3 text-[16px] leading-[18px] md:text-[14px] md:leading-[14px]">Download
                                 Company Profile</span>
@@ -40,7 +40,7 @@
                                     clip-rule="evenodd" />
                             </svg>
                         </a>
-                        <a href="/HALFPRICEPACKAGING-COMPANY-PROFILE.pdf" target="_blank" rel="nofollow"
+                        <a href="/HALFPRICEPACKAGING-COMPANY-PROFILE.pdf" target="_blank"
                             class="w-full md:w-auto font-description flex items-center rounded-[6px] bg-[#ef4b5f] px-[30px] md:px-[20px] py-[10px] md:py-[8px] font-normal text-white shadow-sm hover:bg-[#7157f8] justify-center">
                             <span class="mr-3 text-[16px] leading-[18px] md:text-[14px] md:leading-[14px]">See Company Profile</span>
                             <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
