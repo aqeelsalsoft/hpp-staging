@@ -2,7 +2,7 @@
 
 <template>
     <div class="flex items-center h-[50vw] md:h-[calc(100vh_/_2)] w-6/12 bg-[#333333] relative overflow-hidden">
-        <div class="thumb__wrapper w-full h-full bg-[url('/images/sustainability-grid/kraft-food-boxes.jpg')] bg-no-repeat bg-center bg-contain pt-[100%] relative before:content-[''] before:absolute before:top-0 before:left-0 before:right-0 before:bottom-0 before:bg-[rgba(0,0,0,0.6)]">
+        <div class="thumb__wrapper w-full h-full bg-[url('/images/sustainability-grid/kraft-food-boxes.webp')] bg-no-repeat bg-center bg-contain pt-[100%] relative before:content-[''] before:absolute before:top-0 before:left-0 before:right-0 before:bottom-0 before:bg-[rgba(0,0,0,0.6)]">
             <!-- <NuxtImg format="webp" src="/images/sustainability-grid/kraft-food-boxes.jpg" alt="Kraft Food Boxes Thumbnail"
                 loading="lazy" width="500" height="500" class="w-full h-full object-cover" sizes="400px sm:600px md:850 lg:950px xl:1000px xxl:100wv" /> -->
         </div>
