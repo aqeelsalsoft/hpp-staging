@@ -28,6 +28,23 @@ onMounted(() => {
       t.parentNode.insertBefore(s, t);
     `;
     document.body.appendChild(script);
+
+    const script2 = document.createElement('script');
+    script2.type = 'text/javascript';
+    script2.async = true;
+    script2.defer = true;
+    script2.innerHTML = `
+      (function(w,d,s,l,i){
+        w[l]=w[l]||[];
+        w[l].push({'gtm.start': new Date().getTime(), event:'gtm.js'});
+        var f=d.getElementsByTagName(s)[0],
+        j=d.createElement(s), dl=l!='dataLayer'?'&l='+l:'';
+        j.async=true; j.defer=true;
+        j.src='https://www.googletagmanager.com/gtm.js?id=' + i + dl;
+        f.parentNode.insertBefore(j,f);
+      })(window,document,'script','dataLayer','GTM-WDX5T2S');
+    `;
+    document.body.appendChild(script2);
   });
 });
 
