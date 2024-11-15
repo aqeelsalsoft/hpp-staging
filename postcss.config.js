@@ -1,25 +1,15 @@
-const purgecss = require('@fullhuman/postcss-purgecss');
-
-const isProduction = process.env.NODE_ENV === 'production';
-
+const purgecss = require('@fullhuman/postcss-purgecss')
+const cssnano = require('cssnano')
 module.exports = {
   plugins: [
     require('tailwindcss'),
     require('autoprefixer'),
-    ...(isProduction
-      ? [
-          purgecss({
-            content: [
-              './components/**/*.vue',
-              './layouts/**/*.vue',
-              './pages/**/*.vue',
-              './app.vue',
-            ],
-            safelist: ['html', 'body'], // Prevent removing base styles
-            defaultExtractor: (content) =>
-              content.match(/[\w-/:]+(?<!:)/g) || [],
-          }),
-        ]
-      : []),
-  ],
-};
+    cssnano({
+      preset: 'default'
+    }),
+    purgecss({
+      content: ['./layouts/**/*.html', './src/**/*.vue', './src/**/*.jsx'],
+      defaultExtractor: content => content.match(/[\w-/:]+(?<!:)/g) || []
+    })
+  ]
+}
