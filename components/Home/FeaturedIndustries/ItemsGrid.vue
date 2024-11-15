@@ -3,25 +3,25 @@ import { computed } from 'vue';
 
 // Define the carousel items with URLs and metadata
 const carouselItems = [
-  { id: 1, imgPath: '/images/home-featured-industries/mailer-box.jpg', title: 'Mailer Box', link: '/mailer-boxes', description: "Request a Quote" },
-  { id: 2, imgPath: '/images/home-featured-industries/tuck-box.jpg', title: 'Tuck Boxes', link: '/tuck-boxes', description: "Request a Quote" },
-  { id: 3, imgPath: '/images/home-featured-industries/mylar-bag.jpg', title: 'Mylar Bags and Pouches', link: '/mylar-bags', description: "Request a Quote" },
-  { id: 4, imgPath: '/images/home-featured-industries/rigid-boxes.jpg', title: 'Rigid Boxes', link: '/rigid-boxes', description: "Request a Quote" },
-  { id: 5, imgPath: '/images/home-featured-industries/labels-and-stickers.jpg', title: 'Labels & Stickers', link: '/labels-stickers', description: "Request a Quote" },
-  { id: 6, imgPath: '/images/home-featured-industries/custom-product-dispenser-box.jpg', title: 'Dispenser Boxes', link: '/retail/custom-dispenser-boxes', description: "Request a Quote" },
-  { id: 7, imgPath: '/images/home-featured-industries/cigarette-boxes.jpg', title: 'Cigarette Boxes', link: '/industry/vape-e-cigarette', description: "Request a Quote" },
+  { id: 0, imgPath: '/images/home-featured-industries/mailer-box.jpg', title: 'Mailer Box', link: '/mailer-boxes', description: "Request a Quote" },
+  { id: 1, imgPath: '/images/home-featured-industries/tuck-box.jpg', title: 'Tuck Boxes', link: '/tuck-boxes', description: "Request a Quote" },
+  { id: 2, imgPath: '/images/home-featured-industries/mylar-bag.jpg', title: 'Mylar Bags and Pouches', link: '/mylar-bags', description: "Request a Quote" },
+  { id: 3, imgPath: '/images/home-featured-industries/rigid-boxes.jpg', title: 'Rigid Boxes', link: '/rigid-boxes', description: "Request a Quote" },
+  { id: 4, imgPath: '/images/home-featured-industries/labels-and-stickers.jpg', title: 'Labels & Stickers', link: '/labels-stickers', description: "Request a Quote" },
+  { id: 5, imgPath: '/images/home-featured-industries/custom-product-dispenser-box.jpg', title: 'Dispenser Boxes', link: '/retail/custom-dispenser-boxes', description: "Request a Quote" },
+  { id: 6, imgPath: '/images/home-featured-industries/cigarette-boxes.jpg', title: 'Cigarette Boxes', link: '/industry/vape-e-cigarette', description: "Request a Quote" },
 ];
 
 // Use Nuxt's image provider to generate optimized image URLs
 const img = useImage();
 
 // Generate computed background styles for each carousel item
-const carouselBackgroundStyles = carouselItems.map((item) =>
-  computed(() => {
-    const optimizedImage = img(item.imgPath, { format: 'webp' });
-    return { backgroundImage: `url('${optimizedImage}')` };
-  })
-);
+// const carouselBackgroundStyles = carouselItems.map((item) =>
+//   computed(() => {
+//     const optimizedImage = img(item.imgPath, { format: 'webp' });
+//     return { backgroundImage: `url('${optimizedImage}')` };
+//   })
+// );
 </script>
 
 <template>
@@ -41,7 +41,9 @@ const carouselBackgroundStyles = carouselItems.map((item) =>
             <!-- Background image -->
             <div
               class="thumb__wrap w-[100%] bg-[#efefef] rounded-[22px] overflow-hidden aspect-square pt-[100%] bg-no-repeat bg-center bg-cover"
-              :style="carouselBackgroundStyles.value[index]"
+              :style="{
+                backgroundImage: `url('${img(item.imgPath, { format: 'webp' })}')`
+              }"
             ></div>
 
             <!-- Title and description -->

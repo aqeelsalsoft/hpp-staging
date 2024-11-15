@@ -12,7 +12,9 @@ const backgroundStyles = computed(() => {
     <div class="flex items-center h-[100vw] md:h-screen bg-[#333333] relative overflow-hidden">
         <!-- <div class="thumb__wrapper w-full h-full bg-[url('/images/sustainability-grid/sustainability.webp')] bg-no-repeat bg-center bg-contain pt-[100%] relative before:content-[''] before:absolute before:top-0 before:left-0 before:right-0 before:bottom-0 before:bg-[rgba(0,0,0,0.6)]"> -->
         <div class="thumb__wrapper w-full h-full bg-no-repeat bg-center bg-cover pt-[100%] relative before:content-[''] before:absolute before:top-0 before:left-0 before:right-0 before:bottom-0 before:bg-[rgba(0,0,0,0.6)]"
-            :style="backgroundStyles">
+            :style="{
+                backgroundImage: `url('${img('/images/sustainability-grid/sustainability.jpg', { format: 'webp' })}')`
+            }">
             <!-- <NuxtImg format="webp" src="/images/sustainability-grid/sustainability.jpg"
                 alt="Sustainability Grid Thumbnail" loading="lazy" width="1000" height="1000"
                 class="w-full h-full object-cover" sizes="400px sm:600px md:850 lg:950px xl:1000px xxl:100wv" /> -->

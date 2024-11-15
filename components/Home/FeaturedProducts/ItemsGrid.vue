@@ -3,13 +3,13 @@ import { computed } from 'vue';
 
 // List of carousel items
 const carouselItems = [
-  { id: 1, imgPath: "/images/home-featured-products/auto-lock-boxes.jpg", link: "/tuck-boxes/auto-lock-boxes", title: "Auto Lock Boxes", description: "Request a Quote" },
-  { id: 2, imgPath: "/images/home-featured-products/magnetic-closure-with-insert.jpg", link: "/rigid-boxes/custom-magnetic-closure-boxes", title: "Magnetic Closure Boxes with inserts", description: "Request a Quote", },
-  { id: 3, imgPath: "/images/home-featured-products/custom-boxes-with-inserts.jpg", link: "/cardboard-boxes/custom-boxes-with-inserts", title: "Custom Boxes with Inserts", description: "Request a Quote" },
-  { id: 4, imgPath: "/images/home-featured-products/coffee-cups.jpg", link: "/coffee-tea/double-wall-coffee-cups", title: "Double Wall Coffee Cups", description: "Request a Quote", },
-  { id: 5, imgPath: "/images/home-featured-products/eco-friendly.jpg", link: "/sustainable-packaging/eco-friendly-boxes", title: "Eco-Friendly Boxes", description: "Request a Quote" },
-  { id: 6, imgPath: "/images/home-featured-products/wine-boxes.jpg", link: "/beverage-wine-liquor/wine-boxes", title: "Wine Boxes", description: "Request a Quote" },
-  { id: 7, imgPath: "/images/home-featured-products/metalized-printed-boxes.jpg", link: "/metalized-boxes", title: "Metalized Printed Boxes", description: "Request a Quote", },
+  { id: 0, imgPath: "/images/home-featured-products/auto-lock-boxes.jpg", link: "/tuck-boxes/auto-lock-boxes", title: "Auto Lock Boxes", description: "Request a Quote" },
+  { id: 1, imgPath: "/images/home-featured-products/magnetic-closure-with-insert.jpg", link: "/rigid-boxes/custom-magnetic-closure-boxes", title: "Magnetic Closure Boxes with inserts", description: "Request a Quote", },
+  { id: 2, imgPath: "/images/home-featured-products/custom-boxes-with-inserts.jpg", link: "/cardboard-boxes/custom-boxes-with-inserts", title: "Custom Boxes with Inserts", description: "Request a Quote" },
+  { id: 3, imgPath: "/images/home-featured-products/coffee-cups.jpg", link: "/coffee-tea/double-wall-coffee-cups", title: "Double Wall Coffee Cups", description: "Request a Quote", },
+  { id: 4, imgPath: "/images/home-featured-products/eco-friendly.jpg", link: "/sustainable-packaging/eco-friendly-boxes", title: "Eco-Friendly Boxes", description: "Request a Quote" },
+  { id: 5, imgPath: "/images/home-featured-products/wine-boxes.jpg", link: "/beverage-wine-liquor/wine-boxes", title: "Wine Boxes", description: "Request a Quote" },
+  { id: 6, imgPath: "/images/home-featured-products/metalized-printed-boxes.jpg", link: "/metalized-boxes", title: "Metalized Printed Boxes", description: "Request a Quote", },
 ];
 
 // Function to generate background styles
@@ -22,12 +22,12 @@ const carouselItems = [
 const img = useImage();
 
 // Generate computed background styles for each carousel item
-const carouselBackgroundStyles = carouselItems.map((item) =>
-  computed(() => {
-    const optimizedImage = img(item.imgPath, { format: 'webp' });
-    return { backgroundImage: `url('${optimizedImage}')` };
-  })
-);
+// const carouselBackgroundStyles = carouselItems.map((item) =>
+//   computed(() => {
+//     const optimizedImage = img(item.imgPath, { format: 'webp' });
+//     return { backgroundImage: `url('${optimizedImage}')` };
+//   })
+// );
 </script>
 
 <template>
@@ -45,7 +45,9 @@ const carouselBackgroundStyles = carouselItems.map((item) =>
           >
             <div
               class="thumb__wrap w-[100%] bg-[#efefef] rounded-[22px] overflow-hidden aspect-square pt-[100%] bg-no-repeat bg-center bg-cover"
-              :style="carouselBackgroundStyles.value[index]"
+              :style="{
+                backgroundImage: `url('${img(item.imgPath, { format: 'webp' })}')`
+              }"
             ></div>
             <div class="desc__wrap py-[10px]">
               <h3
