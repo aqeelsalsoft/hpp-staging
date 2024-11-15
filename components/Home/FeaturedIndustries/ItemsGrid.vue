@@ -12,7 +12,7 @@ const carouselImageUrl7 = '/images/home-featured-industries/cigarette-boxes.jpg'
 const img = useImage()
 const backgroundStyles1 = computed(() => {
     const carouselImage = img(carouselImageUrl1, { format: 'webp' })
-    return { backgroundImage: `url('${carouselImage1}')` }
+    return { backgroundImage: `url('${carouselImage}')` }
 });
 const backgroundStyles2 = computed(() => {
     const carouselImage = img(carouselImageUrl2, { format: 'webp' })
