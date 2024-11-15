@@ -112,8 +112,8 @@ export default defineNuxtConfig({
       xxxl: 1921
     },
 
-    provider: 'ipx',
-    // provider: 'netlifyImageCdn',
+    // provider: 'ipx',
+    provider: 'netlifyImageCdn',
     // provider: 'netlify',
     domains: ['https://hpp-staging.netlify.app/', 'https://hppfrontend-new.netlify.app/', 'https://www.halfpricepackaging.com/', 'img.youtube.com', 'i.vimeocdn.com'],
     // dir: "",
