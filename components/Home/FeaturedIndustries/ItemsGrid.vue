@@ -1,6 +1,5 @@
 <script setup>
 import { computed } from 'vue';
-import { useImage } from '@nuxt/image-edge';
 
 // Define the carousel items with URLs and metadata
 const carouselItems = [

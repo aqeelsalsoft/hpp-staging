@@ -69,6 +69,7 @@ useHead({
         s.type="text/javascript";
         s.id="zsiqscript";
         s.defer=true;
+        s.async=true;
         s.src="https://salesiq.zohopublic.com/widget";
         var t=d.getElementsByTagName("script")[0];
         t.parentNode.insertBefore(s,t);
