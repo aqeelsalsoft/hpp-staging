@@ -5,15 +5,15 @@
         <div class="flex flex-wrap md:flex-nowrap">
             <div class="main__gridWrap basis-full md:basis-1/2">
                 <!-- <ClientOnly> -->
-                    <GeneralGreenInitiativeLargeGrid />
+                    <LazyGeneralGreenInitiativeLargeGrid />
                 <!-- </ClientOnly> -->
             </div>
             <div class="flex flex-wrap basis-full md:basis-1/2">
                 <!-- <ClientOnly> -->
-                    <GeneralGreenInitiativeSmallGridOne />
-                    <GeneralGreenInitiativeSmallGridTwo />
-                    <GeneralGreenInitiativeSmallGridThree />
-                    <GeneralGreenInitiativeSmallGridFour />
+                    <LazyGeneralGreenInitiativeSmallGridOne />
+                    <LazyGeneralGreenInitiativeSmallGridTwo />
+                    <LazyGeneralGreenInitiativeSmallGridThree />
+                    <LazyGeneralGreenInitiativeSmallGridFour />
                 <!-- </ClientOnly> -->
             </div>
         </div>
