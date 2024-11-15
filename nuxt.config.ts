@@ -30,7 +30,7 @@ export default defineNuxtConfig({
         output: {
           manualChunks: {
             // Split dependencies into chunks for better tree-shaking
-            vendor: ['vue', 'vue-router'],
+            vendor: ['vue-router'],
           },
         },
       },
