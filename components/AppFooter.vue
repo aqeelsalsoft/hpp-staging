@@ -131,9 +131,6 @@ onMounted(() => {
                                     class="block text-[14px] leading-[24px] hover:text-pitaya-100">Privacy & Policy
                                 </NuxtLink>
                             </li>
-                            <!-- <li class="mb-[5px]">
-                            <NuxtLink to="/sitemap" class="block text-[14px] leading-[24px] hover:text-pitaya-100">Sitemap</NuxtLink>
-                        </li> -->
                         </ul>
                     </div>
                     <div class="widget__wrapper">

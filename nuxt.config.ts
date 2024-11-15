@@ -89,8 +89,41 @@ export default defineNuxtConfig({
       autoImports: ["defineStore", "acceptHMRUpdate"],
     },
 
-  ], '@nuxtjs/color-mode', '@nuxtjs/sitemap', '@nuxtjs/device', '@nuxt/scripts'],
+  ], '@nuxtjs/color-mode', '@nuxtjs/sitemap', '@nuxtjs/device', '@nuxt/scripts', 'nuxt-booster'],
   // ], '@nuxtjs/color-mode', '@nuxtjs/sitemap', '@zadigetvoltaire/nuxt-gtm', '@nuxtjs/device', '@nuxt/scripts'],
+
+  booster: {
+
+    detection: {
+      performance: true,
+      browserSupport: true
+    },
+
+    performanceMetrics: {
+      device: {
+        hardwareConcurrency: { min: 2, max: 48 },
+        deviceMemory: { min: 2 }
+      },
+      timing: {
+        fcp: 800,
+        dcl: 1200
+      }
+    },
+
+    targetFormats: ['webp', 'avif', 'jpg|jpeg|png|gif'],
+
+    componentAutoImport: false,
+    componentPrefix: undefined,
+
+    /**
+     * IntersectionObserver rootMargin for Compoennts and Assets
+     */
+    lazyOffset: {
+      component: '0%',
+      asset: '0%'
+    }
+    
+  },
 
   device: {
     defaultUserAgent: 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/115.0.0.0 Safari/537.36', // Optional: Set default user-agent for SSR
