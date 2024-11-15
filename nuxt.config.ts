@@ -27,12 +27,6 @@ export default defineNuxtConfig({
     build: {
       rollupOptions: {
         treeshake: true, // Explicitly enable tree-shaking
-        output: {
-          manualChunks: {
-            // Split dependencies into chunks for better tree-shaking
-            vendor: ['vue-router'],
-          },
-        },
       },
     },
   },
