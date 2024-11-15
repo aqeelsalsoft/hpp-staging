@@ -8,6 +8,11 @@ export default {
     "./app.vue",
     "./error.vue",
   ],
+  purge: [
+    './src/**/*.html',
+    './src/**/*.vue',
+    './src/**/*.jsx',
+  ],
   theme: {
     extend: {
       fontFamily: {
