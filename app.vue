@@ -3,7 +3,7 @@
     <NuxtLayout>
       <AppHeader />
       <NuxtPage />
-      <AppFooter />
+      <LazyAppFooter />
     </NuxtLayout>
   </div>
 </template>
