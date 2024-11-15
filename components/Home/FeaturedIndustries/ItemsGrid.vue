@@ -48,7 +48,7 @@ const backgroundStyles7 = computed(() => {
                     <NuxtLink to="/mailer-boxes"
                         class="relative flex flex-wrap items-center bg-white cursor-pointer font-mori group tracking-mori rounded-[20px] sm:rounded-b-[12px] sm:rounded-t-[36px] sm:hover:shadow-xl sm:border-[2px] sm:border-white sm:hover:border-[#fbfbfb] transition-all duration-300">
                         <div
-                            class="thumb__wrap w-[100%] bg-[#efefef] rounded-[22px] overflow-hidden aspect-square pt-[100%]" :style="backgroundStyles1">
+                            class="thumb__wrap w-[100%] bg-[#efefef] rounded-[22px] overflow-hidden aspect-square pt-[100%] bg-no-repeat bg-center bg-cover" :style="backgroundStyles1">
                             <!-- <NuxtImg format="webp" src="/images/home-featured-industries/mailer-box.jpg"
                             alt="Mailer Boxes Thumbnail" loading="lazy" fit="cover" width="220" height="220"
                                 class="w-full h-auto" /> -->
@@ -63,7 +63,7 @@ const backgroundStyles7 = computed(() => {
                 <div class="item__wrap">
                     <NuxtLink to="/tuck-boxes"
                         class="relative flex flex-wrap items-center bg-white cursor-pointer font-mori group tracking-mori rounded-[20px] sm:rounded-b-[12px] sm:rounded-t-[36px] sm:hover:shadow-xl sm:border-[2px] sm:border-white sm:hover:border-[#fbfbfb] transition-all duration-300">
-                        <div class="thumb__wrap w-[100%] bg-[#efefef] rounded-[22px] overflow-hidden aspect-square pt-[100%]" :style="backgroundStyles2">
+                        <div class="thumb__wrap w-[100%] bg-[#efefef] rounded-[22px] overflow-hidden aspect-square pt-[100%] bg-no-repeat bg-center bg-cover" :style="backgroundStyles2">
                             <!-- <NuxtImg format="webp" src="/images/home-featured-industries/tuck-box.jpg"
                                 alt="Tuck Boxes Thumbnail" loading="lazy" fit="cover" width="220" height="220"
                                 class="w-full h-auto" /> -->
@@ -78,7 +78,7 @@ const backgroundStyles7 = computed(() => {
                 <div class="item__wrap">
                     <NuxtLink to="/mylar-bags"
                         class="relative flex flex-wrap items-center bg-white cursor-pointer font-mori group tracking-mori rounded-[20px] sm:rounded-b-[12px] sm:rounded-t-[36px] sm:hover:shadow-xl sm:border-[2px] sm:border-white sm:hover:border-[#fbfbfb] transition-all duration-300">
-                        <div class="thumb__wrap w-[100%] bg-[#efefef] rounded-[22px] overflow-hidden aspect-square pt-[100%]" :style="backgroundStyles3">
+                        <div class="thumb__wrap w-[100%] bg-[#efefef] rounded-[22px] overflow-hidden aspect-square pt-[100%] bg-no-repeat bg-center bg-cover" :style="backgroundStyles3">
                             <!-- <NuxtImg format="webp" src="/images/home-featured-industries/mylar-bag.jpg"
                                 alt="Mylar Bags and Pouches Thumbnail" loading="lazy" fit="cover" width="220"
                                 height="220" class="w-full h-auto" /> -->
@@ -93,7 +93,7 @@ const backgroundStyles7 = computed(() => {
                 <div class="item__wrap">
                     <NuxtLink to="/rigid-boxes"
                         class="relative flex flex-wrap items-center bg-white cursor-pointer font-mori group tracking-mori rounded-[20px] sm:rounded-b-[12px] sm:rounded-t-[36px] sm:hover:shadow-xl sm:border-[2px] sm:border-white sm:hover:border-[#fbfbfb] transition-all duration-300">
-                        <div class="thumb__wrap w-[100%] bg-[#efefef] rounded-[22px] overflow-hidden aspect-square pt-[100%]" :style="backgroundStyles4">
+                        <div class="thumb__wrap w-[100%] bg-[#efefef] rounded-[22px] overflow-hidden aspect-square pt-[100%] bg-no-repeat bg-center bg-cover" :style="backgroundStyles4">
                             <!-- <NuxtImg format="webp" src="/images/home-featured-industries/rigid-boxes.jpg"
                                 alt="Rigid Boxes Thumbnail" loading="lazy" fit="cover" width="220" height="220"
                                 class="w-full h-auto" /> -->
@@ -108,7 +108,7 @@ const backgroundStyles7 = computed(() => {
                 <div class="item__wrap">
                     <NuxtLink to="/labels-stickers"
                         class="relative flex flex-wrap items-center bg-white cursor-pointer font-mori group tracking-mori rounded-[20px] sm:rounded-b-[12px] sm:rounded-t-[36px] sm:hover:shadow-xl sm:border-[2px] sm:border-white sm:hover:border-[#fbfbfb] transition-all duration-300">
-                        <div class="thumb__wrap w-[100%] bg-[#efefef] rounded-[22px] overflow-hidden aspect-square pt-[100%]" :style="backgroundStyles5">
+                        <div class="thumb__wrap w-[100%] bg-[#efefef] rounded-[22px] overflow-hidden aspect-square pt-[100%] bg-no-repeat bg-center bg-cover" :style="backgroundStyles5">
                             <!-- <NuxtImg format="webp" src="/images/home-featured-industries/labels-and-stickers.jpg"
                                 alt="Labels & Stickers Thumbnail" loading="lazy" fit="cover" width="220" height="220"
                                 class="w-full h-auto" /> -->
@@ -123,7 +123,7 @@ const backgroundStyles7 = computed(() => {
                 <div class="item__wrap">
                     <NuxtLink to="/retail/custom-dispenser-boxes"
                         class="relative flex flex-wrap items-center bg-white cursor-pointer font-mori group tracking-mori rounded-[20px] sm:rounded-b-[12px] sm:rounded-t-[36px] sm:hover:shadow-xl sm:border-[2px] sm:border-white sm:hover:border-[#fbfbfb] transition-all duration-300">
-                        <div class="thumb__wrap w-[100%] bg-[#efefef] rounded-[22px] overflow-hidden aspect-square pt-[100%]" :style="backgroundStyles6">
+                        <div class="thumb__wrap w-[100%] bg-[#efefef] rounded-[22px] overflow-hidden aspect-square pt-[100%] bg-no-repeat bg-center bg-cover" :style="backgroundStyles6">
                             <!-- <NuxtImg format="webp"
                                 src="/images/home-featured-industries/custom-product-dispenser-box.jpg"
                                 alt="Dispenser Thumbnail" loading="lazy" fit="cover" width="220" height="220"
@@ -139,7 +139,7 @@ const backgroundStyles7 = computed(() => {
                 <div class="item__wrap">
                     <NuxtLink to="/industry/vape-e-cigarette"
                         class="relative flex flex-wrap items-center bg-white cursor-pointer font-mori group tracking-mori rounded-[20px] sm:rounded-b-[12px] sm:rounded-t-[36px] sm:hover:shadow-xl sm:border-[2px] sm:border-white sm:hover:border-[#fbfbfb] transition-all duration-300">
-                        <div class="thumb__wrap w-[100%] bg-[#efefef] rounded-[22px] overflow-hidden aspect-square pt-[100%]" :style="backgroundStyles7">
+                        <div class="thumb__wrap w-[100%] bg-[#efefef] rounded-[22px] overflow-hidden aspect-square pt-[100%] bg-no-repeat bg-center bg-cover" :style="backgroundStyles7">
                             <!-- <NuxtImg format="webp" src="/images/home-featured-industries/cigarette-boxes.jpg"
                                 alt="Cigarette Boxes Thumbnail" loading="lazy" fit="cover" width="220" height="220"
                                 class="w-full h-auto" /> -->
