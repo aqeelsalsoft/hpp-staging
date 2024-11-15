@@ -23,12 +23,26 @@ export default defineNuxtConfig({
     }
   },
 
+  vite: {
+    build: {
+      rollupOptions: {
+        treeshake: true, // Explicitly enable tree-shaking
+        output: {
+          manualChunks: {
+            // Split dependencies into chunks for better tree-shaking
+            vendor: ['vue', 'vue-router'],
+          },
+        },
+      },
+    },
+  },
   build: {
     splitChunks: {
       layouts: true,
       pages: true,
       commons: true,
     },
+    transpile: [], // Remove unnecessary dependencies here
   },
 
   //compatibilityDate:['2024-09-06'],
