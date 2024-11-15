@@ -24,7 +24,11 @@ useSeoMeta({
 
 useHead({
   link: [
-    { rel: 'canonical', href: `https://www.halfpricepackaging.com` },
+    { 
+      rel: 'canonical', href: `https://www.halfpricepackaging.com`,
+      rel: 'preload', as: 'image', href: `/images/home-banner/banner-mobile.webp`,
+      rel: 'preload', as: 'image', href: `/images/home-banner/banner-slider-image.webp`
+     },
   ],
   script: [
     {
