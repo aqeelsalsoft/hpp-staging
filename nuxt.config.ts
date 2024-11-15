@@ -23,6 +23,14 @@ export default defineNuxtConfig({
     }
   },
 
+  build: {
+    splitChunks: {
+      layouts: true,
+      pages: true,
+      commons: true,
+    },
+  },
+
   //compatibilityDate:['2024-09-06'],
 
   // Alias Declaration
