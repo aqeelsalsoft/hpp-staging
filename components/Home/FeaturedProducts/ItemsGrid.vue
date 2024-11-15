@@ -45,7 +45,7 @@ const carouselBackgroundStyles = carouselItems.map((item) =>
           >
             <div
               class="thumb__wrap w-[100%] bg-[#efefef] rounded-[22px] overflow-hidden aspect-square pt-[100%] bg-no-repeat bg-center bg-cover"
-              :style="carouselBackgroundStyles[index]"
+              :style="carouselBackgroundStyles[item.id]"
             ></div>
             <div class="desc__wrap py-[10px]">
               <h3
