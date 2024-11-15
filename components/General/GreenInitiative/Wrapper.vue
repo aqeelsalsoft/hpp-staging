@@ -4,17 +4,17 @@
     <div class="hpp__startJourneyCTAWrapper bg-white">
         <div class="flex flex-wrap md:flex-nowrap">
             <div class="main__gridWrap basis-full md:basis-1/2">
-                <!-- <ClientOnly> -->
+                <ClientOnly>
                     <LazyGeneralGreenInitiativeLargeGrid />
-                <!-- </ClientOnly> -->
+                </ClientOnly>
             </div>
             <div class="flex flex-wrap basis-full md:basis-1/2">
-                <!-- <ClientOnly> -->
+                <ClientOnly>
                     <LazyGeneralGreenInitiativeSmallGridOne />
                     <LazyGeneralGreenInitiativeSmallGridTwo />
                     <LazyGeneralGreenInitiativeSmallGridThree />
                     <LazyGeneralGreenInitiativeSmallGridFour />
-                <!-- </ClientOnly> -->
+                </ClientOnly>
             </div>
         </div>
     </div>
