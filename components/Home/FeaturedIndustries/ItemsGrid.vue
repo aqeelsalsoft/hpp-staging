@@ -30,7 +30,7 @@ const carouselBackgroundStyles = carouselItems.map((item) =>
       <div class="grid grid-cols-2 content-start gap-[20px] px-[20px]">
         <!-- Dynamically render items -->
         <div
-          v-for="item in carouselItems"
+          v-for="(item, index) in carouselItems"
           :key="item.id"
           class="item__wrap"
         >
@@ -41,7 +41,7 @@ const carouselBackgroundStyles = carouselItems.map((item) =>
             <!-- Background image -->
             <div
               class="thumb__wrap w-[100%] bg-[#efefef] rounded-[22px] overflow-hidden aspect-square pt-[100%] bg-no-repeat bg-center bg-cover"
-              :style="carouselBackgroundStyles[item.id]"
+              :style="carouselBackgroundStyles.value[index]"
             ></div>
 
             <!-- Title and description -->
