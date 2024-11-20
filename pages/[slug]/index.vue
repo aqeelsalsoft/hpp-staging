@@ -286,9 +286,14 @@ useHead({
                                         Browse Our Catalogue</NuxtLink>
                                 </div> -->
                                 <div class="thumb__wrapper w-full max-w-[600px]">
-                                    <NuxtImg preload format="webp" :src="featuredImageLink"
+                                    <!-- <NuxtImg preload format="webp" :src="featuredImageLink"
                                         :alt="data?.category?.sub_title" width="600" class="max-w-full h-auto"
-                                        sizes="600px xxs:412px xs:430px" />
+                                        sizes="600px xxs:412px xs:430px" /> -->
+                                        <NuxtPicture
+                                        format="webp"
+                                        :src="featuredImageLink"
+                                        :imgAttrs="{alt:data?.category?.sub_title, class:'max-w-full h-auto',}"
+                                        />
                                 </div>
                             </div>
                         </div>
