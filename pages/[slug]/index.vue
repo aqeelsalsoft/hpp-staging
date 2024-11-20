@@ -30,9 +30,7 @@ const { data, status, error, refresh, clear } = await useAsyncData(
 // if (!data.value || data.value == null) {
 //    router.push('/404')
 // }
-if (!data.value || !data.value.category || Object.keys(data.value.category).length === 0) {
-    router.push('/404');
-}
+
 
 
 if (!hasCategories.value) {
