@@ -27,10 +27,12 @@ const { data, status, error, refresh, clear } = await useAsyncData(
 );
 
 
-//if (!data.value || data.value == null) {
+// if (!data.value || data.value == null) {
 //    router.push('/404')
-//}
-
+// }
+if (!data.value || !data.value.category || Object.keys(data.value.category).length === 0) {
+    router.push('/404');
+}
 
 
 if (!hasCategories.value) {
@@ -43,12 +45,7 @@ if (!hasCategories.value) {
     if (data?.value) {
         setCategories(data?.value?.categories || []);
     }
-    
-    // Optimized Version Code
-    if (status.error || !data.value || !data.value.category) {
-        console.error('API Error or Invalid Data:', error || data.value);
-        router.push('/404');
-    }
+
 }
 
 
