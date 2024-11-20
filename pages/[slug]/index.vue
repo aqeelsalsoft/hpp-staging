@@ -32,8 +32,9 @@ const { data, status, error, refresh, clear } = await useAsyncData(
 //}
 
 // Optimized Version Code
-if (!data.value) {
-    return router.push('/404');
+if (status.error || !data.value || !data.value.category) {
+    // console.error('API Error or Invalid Data:', error || data.value);
+    router.push('/404');
 }
 
 if (!hasCategories.value) {
