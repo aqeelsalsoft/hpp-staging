@@ -14,54 +14,24 @@ const router = useRouter();
 const slug = route.params.slug;
 
 
-// const { data, status, error, refresh, clear } = await useAsyncData(
-//   'shapes-materials',
-//   () => $fetch(`${useRuntimeConfig().public.apiURL}/shapes-and-materials`, {
-//     params: {
-//       industry: slug,
-//       type: 1,
-//       cacheBust: new Date().getTime()
-//     }
-//   }),
-//   { initialCache: false }
-// );
-
-const { data, status, error } = await useAsyncData(
-  'shapes-materials',
-  async () => {
-    const result = await $fetch(`${useRuntimeConfig().public.apiURL}/shapes-and-materials`, {
-      params: {
-        industry: slug,
-        type: 1,
-        cacheBust: new Date().getTime(),
-      },
-    });
-
-    if (!result || !result.category) {
-      throw new Error('Data not found');
-    }
-
-    return result;
-  },
-  { initialCache: false }
+const { data, status, error, refresh, clear } = await useAsyncData(
+    'shapes-materials',
+    () => $fetch(`${useRuntimeConfig().public.apiURL}/shapes-and-materials`, {
+        params: {
+            industry: slug,
+            type: 1,
+            cacheBust: new Date().getTime()
+        }
+    }),
+    { initialCache: false }
 );
-
-// Redirect based on error status
-if (error) {
-  console.error('Redirecting to 404 due to error:', error);
-  router.push('/404');
-}
 
 
 //if (!data.value || data.value == null) {
 //    router.push('/404')
 //}
 
-// Optimized Version Code
-// if (status.error || !data.value || !data.value.category) {
-//     console.error('API Error or Invalid Data:', error || data.value);
-//     router.push('/404');
-// }
+
 
 if (!hasCategories.value) {
     const { data, status, error, refresh, clear } = await useAsyncData(
@@ -73,9 +43,13 @@ if (!hasCategories.value) {
     if (data?.value) {
         setCategories(data?.value?.categories || []);
     }
+    
+    // Optimized Version Code
+    if (status.error || !data.value || !data.value.category) {
+        console.error('API Error or Invalid Data:', error || data.value);
+        router.push('/404');
+    }
 }
-
-
 
 
 const openModal = (image_path) => {
@@ -84,9 +58,9 @@ const openModal = (image_path) => {
 }
 
 const viewAllProducts = () => {
-  console.log("data?.value?.category?.id", data?.value?.category?.id)
-  setIsSelectedIndustry(data?.value?.category?.id);
-  router.push('/catalogue');
+    console.log("data?.value?.category?.id", data?.value?.category?.id)
+    setIsSelectedIndustry(data?.value?.category?.id);
+    router.push('/catalogue');
 }
 
 
@@ -126,26 +100,26 @@ const cleanWhyUsDescription2 = computed(() => {
 });
 
 const generingFaqs = [
-  {
-    question: "What are your minimum order quantities (MOQ)?",
-    answer: "Our minimum order quantity (MOQ) changes based on the distinct product line and customization needs. For more information about the MOQ for the product you're inquisitive about, please reach out to our specialists. We seek to accommodate orders of all measures to meet our customers' various needs, so don't hesitate."
-  },
-  {
-    question: "Do you offer design assistance?",
-    answer: "Yes, our professional designers can assist you in creating the ideal design for your custom packaging. We function closely with our clients to guarantee your packaging aligns with your brand values and product needs. Also, it is free of cost."
-  },
-  {
-    question: "Can I try out samples before purchasing?",
-    answer: "Absolutely! Our sample kit is curated to showcase our top-selling products, allowing you to experience their exceptional quality firsthand. You'll get the chance to see and feel the materials up close. Additionally, we offer a convenient swatch book for your reference."
-  },
-  {
-    question: "What types of packaging materials are available for custom boxes?",
-    answer: "We bring an extensive collection of materials in various thicknesses, including but not limited to eco-friendly Kraft, heavy-duty corrugated, lightweight paperboard and cardboard, bux board, and rigid stock. To keep the uniqueness alive, we also offer metallic stock. For more information, contact our material experts."
-  },
-  {
-    question: "What is the duration of your production time?",
-    answer: `The production timeline varies from 8-10 business days, depending on the order quantity. After checkout, you will receive an estimated "in hands" date for the boxes shopping cart.`
-  },
+    {
+        question: "What are your minimum order quantities (MOQ)?",
+        answer: "Our minimum order quantity (MOQ) changes based on the distinct product line and customization needs. For more information about the MOQ for the product you're inquisitive about, please reach out to our specialists. We seek to accommodate orders of all measures to meet our customers' various needs, so don't hesitate."
+    },
+    {
+        question: "Do you offer design assistance?",
+        answer: "Yes, our professional designers can assist you in creating the ideal design for your custom packaging. We function closely with our clients to guarantee your packaging aligns with your brand values and product needs. Also, it is free of cost."
+    },
+    {
+        question: "Can I try out samples before purchasing?",
+        answer: "Absolutely! Our sample kit is curated to showcase our top-selling products, allowing you to experience their exceptional quality firsthand. You'll get the chance to see and feel the materials up close. Additionally, we offer a convenient swatch book for your reference."
+    },
+    {
+        question: "What types of packaging materials are available for custom boxes?",
+        answer: "We bring an extensive collection of materials in various thicknesses, including but not limited to eco-friendly Kraft, heavy-duty corrugated, lightweight paperboard and cardboard, bux board, and rigid stock. To keep the uniqueness alive, we also offer metallic stock. For more information, contact our material experts."
+    },
+    {
+        question: "What is the duration of your production time?",
+        answer: `The production timeline varies from 8-10 business days, depending on the order quantity. After checkout, you will receive an estimated "in hands" date for the boxes shopping cart.`
+    },
 ]
 
 import { Swiper, SwiperSlide } from 'swiper/vue'; // Import Swiper and SwiperSlide components
@@ -323,7 +297,8 @@ useHead({
                                     <!-- <NuxtImg preload format="webp" :src="featuredImageLink"
                                         :alt="data?.category?.sub_title" width="600" class="max-w-full h-auto"
                                         sizes="600px xxs:412px xs:430px" /> -->
-                                        <img :src="featuredImageLink" :alt="data?.category?.sub_title" width="600" class="max-w-full h-auto" />
+                                    <img :src="featuredImageLink" :alt="data?.category?.sub_title" width="600"
+                                        class="max-w-full h-auto" />
                                 </div>
                             </div>
                         </div>
@@ -414,8 +389,7 @@ useHead({
                             <div class="divider__wrap flex bg-[#999999] h-[20px] w-[1px] mx-[15px]"></div>
                             <p class="font-description text-[#212529] text-[16px] leading-[24px] mb-0">We cover all your
                                 packaging needs. Can't find yours?
-                                <NuxtLink to="#"
-                                    @click="viewAllProducts"
+                                <NuxtLink to="#" @click="viewAllProducts"
                                     class="font-description ml-[10px] text-[#ef4b5f] text-[13px] uppercase font-bold inline-flex items-center">
                                     <span>View All</span><svg xmlns="http://www.w3.org/2000/svg" fill="none"
                                         viewBox="0 0 24 24" stroke-width="4" stroke="currentColor" class="size-3 ml-1">
@@ -433,8 +407,7 @@ useHead({
                         <p class="font-description text-[#212529] text-[16px] leading-[24px] mb-[20px]">We cover all
                             your
                             packaging needs. Can't find yours?</p>
-                        <NuxtLink to="#"
-                           @click="viewAllProducts"
+                        <NuxtLink to="#" @click="viewAllProducts"
                             class="font-description text-[#ef4b5f] text-[16px] uppercase font-bold inline-flex items-center">
                             <span>View All</span><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
                                 stroke-width="4" stroke="currentColor" class="size-3 ml-1">
@@ -507,7 +480,8 @@ useHead({
                                         :alt="item.feature_image_alt" loading="lazy" fit="cover" width="336"
                                         height="336" class="w-full h-auto" /> -->
                                     <img :src="useRuntimeConfig().public.productMediaURL + item.feature_image"
-                                        :alt="item.feature_image_alt" loading="lazy" width="336" height="336" class="w-full h-auto" />
+                                        :alt="item.feature_image_alt" loading="lazy" width="336" height="336"
+                                        class="w-full h-auto" />
                                 </div>
                                 <div class="desc__wrap py-[10px]">
                                     <div
@@ -531,8 +505,8 @@ useHead({
                                         :alt="item.image_alt" loading="lazy" fit="cover" width="336" height="336"
                                         class="w-full h-auto" /> -->
                                     <img :src="`https://www.halfpricepackaging.com/${item.image_path}`"
-                                    :alt="item.image_alt" loading="lazy" width="336" height="336"
-                                    class="w-full h-auto" />
+                                        :alt="item.image_alt" loading="lazy" width="336" height="336"
+                                        class="w-full h-auto" />
                                 </div>
                                 <div class="desc__wrap py-[10px]">
                                     <div
@@ -553,8 +527,7 @@ useHead({
                                     <h3 class="font-headings text-[24px] leading-[30px] font-bold mb-6">
                                         Explore all {{ data?.category?.sub_title }} Products</h3>
                                     <div class="btn__wrap">
-                                        <NuxtLink to="#"
-                                              @click="viewAllProducts"
+                                        <NuxtLink to="#" @click="viewAllProducts"
                                             class="font-description block ease-in-out duration-[0.3s] text-[#ffffff] text-sm bg-[#bc3042] rounded-[6px] py-[8px] px-[30px] border border-[#d4486f] border-solid hover:bg-[#ef4b5f] hover:border-[#ef4b5f] text-center">
                                             View All</NuxtLink>
                                     </div>
@@ -602,7 +575,8 @@ useHead({
                                         fit="cover" class="w-full h-auto" /> -->
                                     <img @click="openModal(image.feature_image_path)"
                                         :src="`${useRuntimeConfig().public.productMediaURL}${image.feature_image}`"
-                                        :alt="image.feature_image_alt" width="334" height="450" loading="lazy" class="w-full h-auto" />
+                                        :alt="image.feature_image_alt" width="334" height="450" loading="lazy"
+                                        class="w-full h-auto" />
                                     <UButton label="" @click="isOpen = true" />
 
                                     <UModal v-model="isOpen" prevent-close>
@@ -665,8 +639,8 @@ useHead({
                         <div class="thumb__wrap rounded-[32px] overflow-hidden">
                             <!-- <NuxtImg format="webp" :src="ctaImageLink" width="556" height="363"
                                 :alt="data?.category?.cta_image_alt" loading="lazy" fit="cover" class="w-full h-auto" /> -->
-                            <img :src="ctaImageLink" width="556" height="363"
-                                :alt="data?.category?.cta_image_alt" loading="lazy" class="w-full h-auto" />
+                            <img :src="ctaImageLink" width="556" height="363" :alt="data?.category?.cta_image_alt"
+                                loading="lazy" class="w-full h-auto" />
                         </div>
                     </div>
                     <div class="desc__wrapper w-full md:w-[55%] pl-0 md:pl-[70px] pr-0 md:pr-[15px]">
@@ -718,8 +692,8 @@ useHead({
         <!-- More Info End -->
 
         <LazyGeneralFaqWrapper :faqs="data?.product?.faq"
-    v-if="data?.product?.faq && data?.product?.faq[0]?.question != ''" />
-    <LazyGeneralFaqWrapper :faqs="generingFaqs" v-else />
+            v-if="data?.product?.faq && data?.product?.faq[0]?.question != ''" />
+        <LazyGeneralFaqWrapper :faqs="generingFaqs" v-else />
         <!-- <LazyGeneralFaqWrapper :faqs="items" /> -->
         <!-- FAQ's End -->
 
