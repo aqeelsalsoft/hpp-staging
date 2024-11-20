@@ -49,7 +49,7 @@ const { data, status, error } = await useAsyncData(
 // Redirect based on error status
 if (error) {
   console.error('Redirecting to 404 due to error:', error);
-  return router.push('/404');
+  router.push('/404');
 }
 
 
