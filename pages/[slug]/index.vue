@@ -27,8 +27,13 @@ const { data, status, error, refresh, clear } = await useAsyncData(
 );
 
 
-if (!data.value || data.value == null) {
-    router.push('/404')
+//if (!data.value || data.value == null) {
+//    router.push('/404')
+//}
+
+// Optimized Version Code
+if (!data.value) {
+    return router.push('/404');
 }
 
 if (!hasCategories.value) {
@@ -468,10 +473,12 @@ useHead({
                             <NuxtLink :to="`/${item.primary_industry}/${item.slug}`"
                                 class="relative flex flex-wrap md:flex-nowrap items-center sm:block bg-white md:px-4 md:p-2 cursor-pointer font-mori group tracking-mori rounded-[20px] sm:rounded-b-[12px] sm:rounded-t-[36px] sm:hover:shadow-xl sm:border-[2px] sm:border-white sm:hover:border-[#fbfbfb] transition-all duration-300">
                                 <div class="thumb__wrap w-full bg-[#efefef] rounded-[32px] overflow-hidden">
-                                    <NuxtImg format="webp"
+                                    <!-- <NuxtImg format="webp"
                                         :src="useRuntimeConfig().public.productMediaURL + item.feature_image"
                                         :alt="item.feature_image_alt" loading="lazy" fit="cover" width="336"
-                                        height="336" class="w-full h-auto" />
+                                        height="336" class="w-full h-auto" /> -->
+                                    <img :src="useRuntimeConfig().public.productMediaURL + item.feature_image"
+                                        :alt="item.feature_image_alt" loading="lazy" width="336" height="336" class="w-full h-auto" />
                                 </div>
                                 <div class="desc__wrap py-[10px]">
                                     <div
@@ -490,10 +497,13 @@ useHead({
                             <a @click="openModal(item.image_path)"
                                 class="relative flex flex-wrap md:flex-nowrap items-center sm:block bg-white md:px-4 md:p-2 cursor-pointer font-mori group tracking-mori rounded-[20px] sm:rounded-b-[12px] sm:rounded-t-[36px] sm:hover:shadow-xl sm:border-[2px] sm:border-white sm:hover:border-[#fbfbfb] transition-all duration-300">
                                 <div class="thumb__wrap w-full bg-[#efefef] rounded-[32px] overflow-hidden">
-                                    <NuxtImg format="webp"
+                                    <!-- <NuxtImg format="webp"
                                         :src="`https://www.halfpricepackaging.com/${item.image_path}`"
                                         :alt="item.image_alt" loading="lazy" fit="cover" width="336" height="336"
-                                        class="w-full h-auto" />
+                                        class="w-full h-auto" /> -->
+                                    <img :src="`https://www.halfpricepackaging.com/${item.image_path}`"
+                                    :alt="item.image_alt" loading="lazy" width="336" height="336"
+                                    class="w-full h-auto" />
                                 </div>
                                 <div class="desc__wrap py-[10px]">
                                     <div
@@ -557,10 +567,13 @@ useHead({
                             <!-- Repeat this block for each SwiperSlide -->
                             <SwiperSlide v-for="(image, index) in data?.related_products" :key="index">
                                 <div class="gallery__item w-[100%] bg-[#efefef] rounded-[32px] overflow-hidden">
-                                    <NuxtImg @click="openModal(image.feature_image_path)" format="webp"
+                                    <!-- <NuxtImg @click="openModal(image.feature_image_path)" format="webp"
                                         :src="`${useRuntimeConfig().public.productMediaURL}${image.feature_image}`"
                                         :alt="image.feature_image_alt" width="334" height="450" loading="lazy"
-                                        fit="cover" class="w-full h-auto" />
+                                        fit="cover" class="w-full h-auto" /> -->
+                                    <img @click="openModal(image.feature_image_path)"
+                                        :src="`${useRuntimeConfig().public.productMediaURL}${image.feature_image}`"
+                                        :alt="image.feature_image_alt" width="334" height="450" loading="lazy" class="w-full h-auto" />
                                     <UButton label="" @click="isOpen = true" />
 
                                     <UModal v-model="isOpen" prevent-close>
@@ -621,8 +634,10 @@ useHead({
                     v-if="data?.category?.whyus_title && data?.category?.whyus_title !== 'null' && data?.category?.whyus_desc !== null">
                     <div class="thumb__wrapper w-full md:w-[45%] px-0 md:px-[15px] mb-6 md:mb-0">
                         <div class="thumb__wrap rounded-[32px] overflow-hidden">
-                            <NuxtImg format="webp" :src="ctaImageLink" width="556" height="363"
-                                :alt="data?.category?.cta_image_alt" loading="lazy" fit="cover" class="w-full h-auto" />
+                            <!-- <NuxtImg format="webp" :src="ctaImageLink" width="556" height="363"
+                                :alt="data?.category?.cta_image_alt" loading="lazy" fit="cover" class="w-full h-auto" /> -->
+                            <img :src="ctaImageLink" width="556" height="363"
+                                :alt="data?.category?.cta_image_alt" loading="lazy" class="w-full h-auto" />
                         </div>
                     </div>
                     <div class="desc__wrapper w-full md:w-[55%] pl-0 md:pl-[70px] pr-0 md:pr-[15px]">
@@ -657,9 +672,11 @@ useHead({
                     </div>
                     <div class="thumb__wrapper w-full md:w-[45%] px-0 md:px-[15px] mb-6 md:mb-0 order-1 md:order-2">
                         <div class="thumb__wrap rounded-[32px] overflow-hidden">
-                            <NuxtImg format="webp" :src="ctaImageLink2" width="556" height="363"
+                            <!-- <NuxtImg format="webp" :src="ctaImageLink2" width="556" height="363"
                                 :alt="data?.category?.collection_image_alt" loading="lazy" fit="cover"
-                                class="w-full h-auto" />
+                                class="w-full h-auto" /> -->
+                            <img :src="ctaImageLink2" width="556" height="363"
+                                :alt="data?.category?.collection_image_alt" loading="lazy" class="w-full h-auto" />
                         </div>
                     </div>
                 </div>
