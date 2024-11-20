@@ -14,24 +14,54 @@ const router = useRouter();
 const slug = route.params.slug;
 
 
-const { data, status, error, refresh, clear } = await useAsyncData(
+// const { data, status, error, refresh, clear } = await useAsyncData(
+//   'shapes-materials',
+//   () => $fetch(`${useRuntimeConfig().public.apiURL}/shapes-and-materials`, {
+//     params: {
+//       industry: slug,
+//       type: 1,
+//       cacheBust: new Date().getTime()
+//     }
+//   }),
+//   { initialCache: false }
+// );
+
+const { data, status, error } = await useAsyncData(
   'shapes-materials',
-  () => $fetch(`${useRuntimeConfig().public.apiURL}/shapes-and-materials`, {
-    params: {
-      industry: slug,
-      type: 1,
-      cacheBust: new Date().getTime()
+  async () => {
+    const result = await $fetch(`${useRuntimeConfig().public.apiURL}/shapes-and-materials`, {
+      params: {
+        industry: slug,
+        type: 1,
+        cacheBust: new Date().getTime(),
+      },
+    });
+
+    if (!result || !result.category) {
+      throw new Error('Data not found');
     }
-  }),
+
+    return result;
+  },
   { initialCache: false }
 );
+
+// Redirect based on error status
+if (error) {
+  console.error('Redirecting to 404 due to error:', error);
+  return router.push('/404');
+}
 
 
 //if (!data.value || data.value == null) {
 //    router.push('/404')
 //}
 
-
+// Optimized Version Code
+// if (status.error || !data.value || !data.value.category) {
+//     console.error('API Error or Invalid Data:', error || data.value);
+//     router.push('/404');
+// }
 
 if (!hasCategories.value) {
     const { data, status, error, refresh, clear } = await useAsyncData(
@@ -45,11 +75,8 @@ if (!hasCategories.value) {
     }
 }
 
-// Optimized Version Code
-if (status.error || !data.value || !data.value.category) {
-    console.error('API Error or Invalid Data:', error || data.value);
-    router.push('/404');
-}
+
+
 
 const openModal = (image_path) => {
     setIsModalImage(image_path);
