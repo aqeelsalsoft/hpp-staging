@@ -31,11 +31,7 @@ const { data, status, error, refresh, clear } = await useAsyncData(
 //    router.push('/404')
 //}
 
-// Optimized Version Code
-if (status.error || !data.value || !data.value.category) {
-    // console.error('API Error or Invalid Data:', error || data.value);
-    router.push('/404');
-}
+
 
 if (!hasCategories.value) {
     const { data, status, error, refresh, clear } = await useAsyncData(
@@ -49,6 +45,11 @@ if (!hasCategories.value) {
     }
 }
 
+// Optimized Version Code
+if (status.error || !data.value || !data.value.category) {
+    console.error('API Error or Invalid Data:', error || data.value);
+    router.push('/404');
+}
 
 const openModal = (image_path) => {
     setIsModalImage(image_path);
