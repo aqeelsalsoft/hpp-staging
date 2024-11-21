@@ -244,6 +244,7 @@ useHead({
     ]
 });
 
+console.log(`${useRuntimeConfig().public.apiURL}/shapes-and-materials`);
 
 </script>
 
