@@ -13,6 +13,7 @@ const route = useRoute();
 const router = useRouter();
 const slug = route.params.slug;
 
+console.log('page slug is: ' + slug)
 
 const { data, status, error, refresh, clear } = await useAsyncData(
     'shapes-materials',
