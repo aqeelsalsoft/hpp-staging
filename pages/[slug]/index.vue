@@ -279,11 +279,10 @@ console.log(`${useRuntimeConfig().public.apiURL}/shapes-and-materials`);
                     <div class="content__wrap w-full md:w-[60%] mb-10 md:mb-0">
                         <div class="hpp__categoryBannerContentWrapper pl-0 md:pl-[15px] pr-0 md:pr-[50px]">
                             <div class="desc__wrap max-w-[600px]">
-                                <h1
+                                <h1 v-if="data?.value"
                                     class="font-headings text-[36px] leading-[40px] font-bold tracking-tight text-gray-900 md:text-4xl">
-                                    {{
-                                        data?.category?.sub_title }}</h1>
-                                <p class="font-description mt-6 text-[16px] leading-[24px] text-gray-600 mb-[30px]">{{
+                                    {{ data?.category?.sub_title }}</h1>
+                                <p v-if="data?.value" class="font-description mt-6 text-[16px] leading-[24px] text-gray-600 mb-[30px]">{{
                                     data?.category?.sub_text }}</p>
                                 <!-- <div class="btn__wrapper">
                                     <NuxtLink to="/catalogue"
