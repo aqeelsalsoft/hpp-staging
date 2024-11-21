@@ -130,6 +130,7 @@ export default defineNuxtConfig({
   },
 
   nitro: {
+    preset: 'netlify', // Ensures Netlify-compatible output
     prerender: {
       crawlLinks: false,
       routes: ['/', 'sitemap.xml'],
