@@ -5,7 +5,7 @@ import { defineNuxtModule } from 'nuxt';
 import { resolve } from "path";
 export default defineNuxtConfig({
 
-  ssr: false,
+  ssr: true,
 
   // App Default Config
   app: {
