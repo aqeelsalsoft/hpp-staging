@@ -31,8 +31,10 @@ defineProps({
                 </div>
                 <div class="thumb__wrapper w-full md:w-[45%] px-0 md:px-[15px]">
                     <div class="thumb__wrap rounded-[32px] overflow-hidden">
-                        <NuxtImg format="webp" :src="`${useRuntimeConfig().public.productMediaURL}${featureImage}`" :alt="fAltTag"
-                            alt="Kraft Soap Boxes Thumbnail" loading="lazy" fit="cover" width="600" height="600" class="w-full h-auto" />
+                        <!-- <NuxtImg format="webp" :src="`${useRuntimeConfig().public.productMediaURL}${featureImage}`" :alt="fAltTag"
+                            alt="Kraft Soap Boxes Thumbnail" loading="lazy" fit="cover" width="600" height="600" class="w-full h-auto" /> -->
+                        <img :src="`${useRuntimeConfig().public.productMediaURL}${featureImage}`" :alt="fAltTag"
+                            loading="lazy" width="600" height="600" class="w-full h-auto" />
                     </div>
                 </div>
             </div>

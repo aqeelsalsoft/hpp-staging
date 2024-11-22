@@ -53,8 +53,10 @@ defineProps({
             <div class="flex items-center flex-wrap mb-[50px] md:mb-[100px]" v-if="title && title != 'null'">
                 <div class="thumb__wrapper w-full md:w-[45%] px-[0] md:px-[15px] mb-8">
                     <div class="thumb__wrap rounded-[32px] overflow-hidden">
-                        <NuxtImg format="webp" :src="`${useRuntimeConfig().public.productMediaURL}${image}`" :alt="alt"
-                            loading="lazy" width="556" height="363" fit="cover" class="w-full h-auto" />
+                        <!-- <NuxtImg format="webp" :src="`${useRuntimeConfig().public.productMediaURL}${image}`" :alt="alt"
+                            loading="lazy" width="556" height="363" fit="cover" class="w-full h-auto" /> -->
+                        <img :src="`${useRuntimeConfig().public.productMediaURL}${image}`" :alt="alt"
+                            loading="lazy" width="556" height="363" class="w-full h-auto" />
                     </div>
                 </div>
                 <div class="desc__wrapper w-full md:w-[55%] pl-0 md:pl-[70px] pr-0 md:pr-[15px]">
@@ -80,7 +82,8 @@ defineProps({
                 </div>
                 <div class="thumb__wrapper w-full md:w-[45%] px-[15px] order-1 md:order-2 mb-8 md:mb-0">
                     <div class="thumb__wrap rounded-[32px] overflow-hidden">
-                        <NuxtImg format="webp" :src="`${useRuntimeConfig().public.productMediaURL}${bgImage}`" :alt="bgAlt" loading="lazy" width="556" height="363" fit="cover" class="w-full h-auto" />
+                        <!-- <NuxtImg format="webp" :src="`${useRuntimeConfig().public.productMediaURL}${bgImage}`" :alt="bgAlt" loading="lazy" width="556" height="363" fit="cover" class="w-full h-auto" /> -->
+                        <img :src="`${useRuntimeConfig().public.productMediaURL}${bgImage}`" :alt="bgAlt" loading="lazy" width="556" height="363" class="w-full h-auto" />
                     </div>
                 </div>
             </div>

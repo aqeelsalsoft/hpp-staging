@@ -28,6 +28,7 @@ const { data, status, error, refresh, clear } = await useAsyncData(
     { initialCache: false }
 );
 
+console.log('Category: ' + data?.category)
 
 // if (!data.value || data.value == null) {
 //    router.push('/404')

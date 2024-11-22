@@ -89,8 +89,11 @@ onBeforeUnmount(() => {
                 <!-- Slider Main Container -->
                 <div ref="sliderRef" class="keen-slider mb-[20px]">
                     <div v-for="(slide, index) in galleryImages" :key="index" class="keen-slider__slide rounded-[32px]">
-                        <NuxtImg format="webp" :src="`${useRuntimeConfig().public.productMediaURL}${slide.image_name}`"
+                        <!-- <NuxtImg format="webp" :src="`${useRuntimeConfig().public.productMediaURL}${slide.image_name}`"
                             :alt="slide.fAltTag" width="800" height="800" loading="lazy" fit="cover"
+                            class="w-full h-auto" sizes="sm:430px md:767px lg:550px" /> -->
+                        <img :src="`${useRuntimeConfig().public.productMediaURL}${slide.image_name}`"
+                            :alt="slide.fAltTag" width="800" height="800" loading="lazy"
                             class="w-full h-auto" sizes="sm:430px md:767px lg:550px" />
                     </div>
                 </div>
@@ -99,8 +102,11 @@ onBeforeUnmount(() => {
                 <!-- Thumbnail Slider Container -->
                 <div ref="thumbnailRef" class="keen-slider thumbnail h-full">
                     <div v-for="(slide, index) in galleryImages" :key="index" class="keen-slider__slide rounded-[16px]">
-                        <NuxtImg format="webp" :src="`${useRuntimeConfig().public.productMediaURL}${slide.image_name}`"
+                        <!-- <NuxtImg format="webp" :src="`${useRuntimeConfig().public.productMediaURL}${slide.image_name}`"
                             :alt="slide.fAltTag" width="165" height="165" loading="lazy" fit="cover"
+                            class="w-full h-auto" sizes="sm:100px md:150px lg:180px" /> -->
+                        <img :src="`${useRuntimeConfig().public.productMediaURL}${slide.image_name}`"
+                            :alt="slide.fAltTag" width="165" height="165" loading="lazy"
                             class="w-full h-auto" sizes="sm:100px md:150px lg:180px" />
                     </div>
                 </div>
