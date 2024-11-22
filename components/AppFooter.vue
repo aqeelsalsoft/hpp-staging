@@ -33,9 +33,9 @@ useHead({
         }
     ],
     // This is necessary to ensure that the inline script is correctly executed
-    __dangerouslyDisableSanitizersByTagID: {
-        'zsiqchat': ['innerHTML']
-    }
+    // __dangerouslyDisableSanitizersByTagID: {
+    //     'zsiqchat': ['innerHTML']
+    // }
 })
 
 // useHead({
