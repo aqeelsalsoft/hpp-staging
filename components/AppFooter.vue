@@ -12,7 +12,7 @@ useHead({
             id: 'zsiqchat',
             async: true,
             defer: true,
-            tagPosition: 'body',
+            tagPosition: 'bodyClose',
             innerHTML: `
         var $zoho=$zoho || {};
         $zoho.salesiq = $zoho.salesiq || {
